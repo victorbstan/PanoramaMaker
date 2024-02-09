@@ -1,7 +1,0 @@
-res://panorama_viewer.tscn
-res://camera360/PanoramaFromCubeMap.gd
-res://camera360/PanoramaFromCubeMap.gdshader
-res://panorama_viewer_environment.tres
-res://panorama_maker.tscn
-res://assets/test_scene.tscn
-res://camera360/CubeCam.tscn
