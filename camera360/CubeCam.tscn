@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1yieta6qw8rw"]
+
+[ext_resource type="Script" path="res://camera360/CubeCam.gd" id="1"]
+
+[node name="CubeCam" type="Node3D"]
+script = ExtResource("1")
+
+[node name="ForwardViewport" type="SubViewport" parent="."]
+msaa_3d = 3
+use_debanding = true
+size = Vector2i(256, 256)
+render_target_update_mode = 3
+
+[node name="Position" type="Node3D" parent="ForwardViewport"]
+
+[node name="Camera" type="Camera3D" parent="ForwardViewport/Position"]
+fov = 90.0
+
+[node name="LeftViewport" type="SubViewport" parent="."]
+msaa_3d = 3
+use_debanding = true
+render_target_update_mode = 3
+
+[node name="Position" type="Node3D" parent="LeftViewport"]
+
+[node name="Camera" type="Camera3D" parent="LeftViewport/Position"]
+transform = Transform3D(-1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0)
+fov = 90.0
+
+[node name="BackViewport" type="SubViewport" parent="."]
+msaa_3d = 3
+use_debanding = true
+render_target_update_mode = 3
+
+[node name="Position" type="Node3D" parent="BackViewport"]
+
+[node name="Camera" type="Camera3D" parent="BackViewport/Position"]
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0)
+fov = 90.0
+
+[node name="RightViewport" type="SubViewport" parent="."]
+msaa_3d = 3
+use_debanding = true
+render_target_update_mode = 3
+
+[node name="Position" type="Node3D" parent="RightViewport"]
+
+[node name="Camera" type="Camera3D" parent="RightViewport/Position"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+fov = 90.0
+
+[node name="TopViewport" type="SubViewport" parent="."]
+msaa_3d = 3
+use_debanding = true
+render_target_update_mode = 3
+
+[node name="Position" type="Node3D" parent="TopViewport"]
+
+[node name="Camera" type="Camera3D" parent="TopViewport/Position"]
+transform = Transform3D(-1.62921e-07, 1, -1.62921e-07, 0, -1.62921e-07, -1, -1, -1.62921e-07, 2.65431e-14, 0, 0, 0)
+fov = 90.0
+
+[node name="BottomViewport" type="SubViewport" parent="."]
+msaa_3d = 3
+use_debanding = true
+render_target_update_mode = 3
+
+[node name="Position" type="Node3D" parent="BottomViewport"]
+
+[node name="Camera" type="Camera3D" parent="BottomViewport/Position"]
+transform = Transform3D(-1.62921e-07, 1, 1.62921e-07, 0, -1.62921e-07, 1, 1, 1.62921e-07, 2.65431e-14, 0, 0, 0)
+fov = 90.0

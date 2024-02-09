@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp8bw0viaq683"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycnqy"]
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_njjy3"]
+material = SubResource("StandardMaterial3D_ycnqy")
+flip_faces = true
+radius = 5.0
+height = 10.0
+radial_segments = 32
+rings = 16
+
+[node name="SkySphere" type="MeshInstance3D"]
+layers = 3
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("SphereMesh_njjy3")
+skeleton = NodePath("../..")

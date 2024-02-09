@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://gm841tkv0myb"]
+
+[ext_resource type="PackedScene" uid="uid://pecop8i8wdiy" path="res://camera360/PanoramaFromCubeMap.tscn" id="1_82c4m"]
+[ext_resource type="Script" path="res://panorama_maker.gd" id="1_waa14"]
+[ext_resource type="PackedScene" uid="uid://b1yieta6qw8rw" path="res://camera360/CubeCam.tscn" id="2_0mjrc"]
+[ext_resource type="PackedScene" uid="uid://cnkji4tk7ol7q" path="res://assets/test_scene.tscn" id="3_5s4ws"]
+
+[node name="PanoramaMaker" type="Node3D"]
+script = ExtResource("1_waa14")
+
+[node name="TestScene" parent="." instance=ExtResource("3_5s4ws")]
+
+[node name="Panorama" parent="." instance=ExtResource("1_82c4m")]
+
+[node name="CubeCam" parent="." instance=ExtResource("2_0mjrc")]

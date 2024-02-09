@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://yok2dibc2hs3"]
+
+[ext_resource type="Shader" path="res://camera360/PanoramaFromCubeMap.gdshader" id="1_tcqu2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbgfn"]
+shader = ExtResource("1_tcqu2")
+
+[sub_resource type="Sky" id="Sky_5q8ou"]
+sky_material = SubResource("ShaderMaterial_kbgfn")
+
+[sub_resource type="Environment" id="Environment_wjtnm"]
+background_mode = 2
+sky = SubResource("Sky_5q8ou")
+
+[node name="Preview" type="Node3D"]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.659661, 0, -0.751563, 0, 1, 0, 0.751563, 0, -0.659661, -8.00161, 0, -8.20249)
+current = true
+fov = 90.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wjtnm")
