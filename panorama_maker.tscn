@@ -7,9 +7,23 @@
 
 [node name="PanoramaMaker" type="Node3D"]
 script = ExtResource("1_waa14")
+save_file_name = "2-panorama"
+resolution = "4K"
 
 [node name="TestScene" parent="." instance=ExtResource("3_5s4ws")]
 
-[node name="Panorama" parent="." instance=ExtResource("1_82c4m")]
-
 [node name="CubeCam" parent="." instance=ExtResource("2_0mjrc")]
+
+[node name="RendererContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Renderer" type="SubViewport" parent="RendererContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(2048, 1024)
+
+[node name="Panorama" parent="RendererContainer/Renderer" instance=ExtResource("1_82c4m")]

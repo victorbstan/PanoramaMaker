@@ -4,6 +4,8 @@
 
 [node name="CubeCam" type="Node3D"]
 script = ExtResource("1")
+cube_size = 2048.0
+shadow_atlast_size = 2048.0
 
 [node name="ForwardViewport" type="SubViewport" parent="."]
 msaa_3d = 3
