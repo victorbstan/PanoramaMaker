@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bgpo2md2ho2yo"]
+
+[ext_resource type="Shader" path="res://camera360/canvas_shader_nearest.gdshader" id="1_x5ctv"]
+
+[resource]
+shader = ExtResource("1_x5ctv")

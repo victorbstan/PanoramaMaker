@@ -1,5 +1,9 @@
 extends ColorRect
 
+@export_enum("linear", "nearest") var custom_texture_filter:String = "linear" : set = set_custom_texture_filter
+@export var linear_material:Material = preload("res://camera360/canvas_material_linear.tres")
+@export var nearest_material:Material = preload("res://camera360/canvas_material_nearest.tres")
+
 var ForwardTexture:Texture: set = set_forward_texture, get = get_forward_texture
 var LeftTexture:Texture: set = set_left_texture, get = get_left_texture
 var BackTexture:Texture: set = set_back_texture, get = get_back_texture
@@ -8,6 +12,9 @@ var TopTexture:Texture: set = set_top_texture, get = get_top_texture
 var BottomTexture:Texture: set = set_bottom_texture, get = get_bottom_texture
 
 var is_ready = false
+
+func set_custom_texture_filter(filter:String):
+	custom_texture_filter = filter
 
 func set_from_cubemap(cubemap):
 	set_forward_texture(cubemap.get_forward_texture())
@@ -67,9 +74,20 @@ func get_bottom_texture():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	process_textures()
+	
 	# we are ready
 	is_ready = true
-	
+
+
+func process_textures():
+	match custom_texture_filter:
+		"linear": 
+			texture_filter = TEXTURE_FILTER_LINEAR
+			material = linear_material
+		"nearest": 
+			texture_filter = TEXTURE_FILTER_NEAREST
+			material = nearest_material
 	# assign textures to shader
 	set_forward_texture(ForwardTexture)
 	set_left_texture(LeftTexture)
@@ -77,5 +95,3 @@ func _ready():
 	set_right_texture(RightTexture)
 	set_top_texture(TopTexture)
 	set_bottom_texture(BottomTexture)
-
-

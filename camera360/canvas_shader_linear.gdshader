@@ -1,11 +1,12 @@
 shader_type canvas_item;
 
-uniform sampler2D ForwardTexture;
-uniform sampler2D LeftTexture;
-uniform sampler2D BackTexture;
-uniform sampler2D RightTexture;
-uniform sampler2D TopTexture;
-uniform sampler2D BottomTexture;
+// Linear filered
+uniform sampler2D ForwardTexture: filter_linear;
+uniform sampler2D LeftTexture: filter_linear;
+uniform sampler2D BackTexture: filter_linear;
+uniform sampler2D RightTexture: filter_linear;
+uniform sampler2D TopTexture: filter_linear;
+uniform sampler2D BottomTexture: filter_linear;
 
 void fragment() {
 	vec3 dir = vec3(0.0);

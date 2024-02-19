@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://yok2dibc2hs3"]
 
-[ext_resource type="Shader" path="res://camera360/PanoramaFromCubeMap.gdshader" id="1_tcqu2"]
+[ext_resource type="Shader" path="res://camera360/canvas_shader_nearest.gdshader" id="1_tcqu2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbgfn"]
 shader = ExtResource("1_tcqu2")

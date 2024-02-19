@@ -4,6 +4,7 @@
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_e1x7n"]
 panorama = ExtResource("1_0al2l")
+filter = false
 
 [sub_resource type="Sky" id="Sky_clgu8"]
 sky_material = SubResource("PanoramaSkyMaterial_e1x7n")
