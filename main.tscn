@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://1qokgtt0ghfg"]
+
+[ext_resource type="PackedScene" uid="uid://gm841tkv0myb" path="res://panorama_maker/panorama_maker.tscn" id="1_khbqv"]
+[ext_resource type="Script" path="res://main.gd" id="1_vdsib"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_vdsib")
+
+[node name="MyScene" type="Node3D" parent="."]
+
+[node name="PanoramaMaker" parent="." instance=ExtResource("1_khbqv")]

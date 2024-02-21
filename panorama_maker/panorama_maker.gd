@@ -15,6 +15,7 @@ extends Node3D
 @onready var panorama := $RendererContainer/Renderer/Panorama
 @onready var cube_cam := $CubeCam
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	match texture_filter:
@@ -32,7 +33,6 @@ func _ready():
 		"1024": cube_cam.cube_size = 1024
 		"2048": cube_cam.cube_size = 2048
 		"4096": cube_cam.cube_size = 4096
-	print('PM: ', capture_resolution)
 	cube_cam.texture_filter = texture_filter
 	cube_cam.antialias_msaa = antialias_msaa
 	cube_cam.setup() # call after setting all cube camera parameters
@@ -46,16 +46,21 @@ func _ready():
 	panorama.set_from_cubemap($CubeCam)
 	panorama.process_textures() # call after parameter changes
 	
-	generate_image()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	save_panorama()
 
 
 # save panorama as PNG file
-func generate_image():
+func save_panorama():
 	await RenderingServer.frame_post_draw
 	var img = renderer.get_texture().get_image()
 	img.save_png("res://panoramas/" + save_file_name +".png")
+	
+
+func save_skybox():
+	# TODO: implement 6 texture saving for skybox format
+	#Each Skybox face name is composed of two components: the base name and a suffix indicating which face the image relates to.
+#
+	#The base name should be strictly alphanumeric, and should not contain spaces. Only the base name is used for loading.
+#
+	#The suffix should be either of "bk" (back face), "ft" (front face), "lf" (left face), "rt" (right face), "up" (up face) or "dn" (down face). 
+	pass
