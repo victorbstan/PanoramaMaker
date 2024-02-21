@@ -49,10 +49,7 @@ func setup():
 				viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR
 			"nearest": 
 				viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
-			
-		print('CC: ', viewport.canvas_item_default_texture_filter)
-	# debug
-	print(cube_size, texture_filter, antialias_msaa)
+
 
 func get_forward_texture():
 	return $ForwardViewport.get_texture()

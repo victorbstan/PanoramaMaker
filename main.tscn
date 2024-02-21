@@ -6,6 +6,23 @@
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vdsib")
 
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBar" type="MenuBar" parent="UI"]
+layout_mode = 1
+offset_right = 103.0
+offset_bottom = 40.0
+
+[node name="Scenes" type="PopupMenu" parent="UI/MenuBar"]
+
 [node name="MyScene" type="Node3D" parent="."]
 
 [node name="PanoramaMaker" parent="." instance=ExtResource("1_khbqv")]
+
+[connection signal="index_pressed" from="UI/MenuBar/Scenes" to="." method="_on_scenes_index_pressed"]
