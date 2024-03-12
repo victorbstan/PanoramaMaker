@@ -57,7 +57,7 @@ albedo_color = Color(1, 0, 1, 1)
 material = SubResource("StandardMaterial3D_x08ti")
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="TestScene" type="Node3D"]
+[node name="TestScene2" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, -0.5, 2.4663e-16, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 6.21523, 0)

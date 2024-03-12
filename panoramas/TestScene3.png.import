@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lrfo4133wfns"
-path="res://.godot/imported/untitled-panorama.png-f43003f07572de6c19d82d3d30a6bc8d.ctex"
+uid="uid://yf0anmhxkspn"
+path="res://.godot/imported/TestScene3.png-fe6fe5d8adbeba668f60e8e9dfaa8280.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://panoramas/untitled-panorama.png"
-dest_files=["res://.godot/imported/untitled-panorama.png-f43003f07572de6c19d82d3d30a6bc8d.ctex"]
+source_file="res://panoramas/TestScene3.png"
+dest_files=["res://.godot/imported/TestScene3.png-fe6fe5d8adbeba668f60e8e9dfaa8280.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -6,7 +6,15 @@
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vdsib")
 
-[node name="UI" type="Control" parent="."]
+[node name="PanoramaMaker" parent="." instance=ExtResource("1_khbqv")]
+unique_name_in_owner = true
+
+[node name="MyScene" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,15 +22,139 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuBar" type="MenuBar" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+offset_right = 140.0
+offset_bottom = 51.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScenesMenuBar" type="MenuBar" parent="CanvasLayer/UI/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Scenes" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer/ScenesMenuBar"]
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI"]
+auto_translate_mode = 1
 layout_mode = 1
-offset_right = 103.0
-offset_bottom = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.0
+offset_right = 161.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="Scenes" type="PopupMenu" parent="UI/MenuBar"]
+[node name="SelectedSceneLabel" type="Label" parent="CanvasLayer/UI/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.392157)
+text = "Select a scene to preview and render... "
 
-[node name="MyScene" type="Node3D" parent="."]
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/UI"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -140.0
+offset_bottom = 51.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="PanoramaMaker" parent="." instance=ExtResource("1_khbqv")]
+[node name="RenderButton" type="Button" parent="CanvasLayer/UI/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Render"
 
-[connection signal="index_pressed" from="UI/MenuBar/Scenes" to="." method="_on_scenes_index_pressed"]
+[node name="NotificationWindow" type="Window" parent="CanvasLayer/UI"]
+unique_name_in_owner = true
+title = "Notification"
+initial_position = 2
+size = Vector2i(400, 118)
+visible = false
+wrap_controls = true
+transient = true
+unresizable = true
+popup_window = true
+keep_title_visible = true
+content_scale_size = Vector2i(400, 200)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/NotificationWindow"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -60.0
+offset_right = 110.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="MessageLabel" type="Label" parent="CanvasLayer/UI/NotificationWindow/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.392157)
+text = "Message label"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/NotificationWindow"]
+auto_translate_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="ErrorLabel" type="Label" parent="CanvasLayer/UI/NotificationWindow/MarginContainer2"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.392157)
+text = "Error"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer/ScenesMenuBar/Scenes" to="." method="_on_scenes_index_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/MarginContainer3/RenderButton" to="." method="_on_render_button_pressed"]
+[connection signal="close_requested" from="CanvasLayer/UI/NotificationWindow" to="." method="_on_notification_window_close_requested"]
+[connection signal="focus_exited" from="CanvasLayer/UI/NotificationWindow" to="." method="_on_notification_window_focus_exited"]

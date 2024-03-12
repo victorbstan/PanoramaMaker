@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpdlc5wngxywo"
-path="res://.godot/imported/2-panorama.png-4d872f9e3c57e9786d0617402b6f0bca.ctex"
+uid="uid://dj7dpyim2hd81"
+path="res://.godot/imported/TestScene2.png-04c36634bbb615bc1347833c310c2b37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://panoramas/2-panorama.png"
-dest_files=["res://.godot/imported/2-panorama.png-4d872f9e3c57e9786d0617402b6f0bca.ctex"]
+source_file="res://panoramas/TestScene2.png"
+dest_files=["res://.godot/imported/TestScene2.png-04c36634bbb615bc1347833c310c2b37.ctex"]
 
 [params]
 

@@ -50,10 +50,12 @@ func _ready():
 
 
 # save panorama as PNG file
-func save_panorama():
+func save_panorama() -> String:
 	await RenderingServer.frame_post_draw
 	var img = renderer.get_texture().get_image()
-	img.save_png("res://panoramas/" + save_file_name +".png")
+	var output_path = "res://panoramas/" + save_file_name +".png"
+	img.save_png(output_path)
+	return output_path
 	
 
 func save_skybox():
