@@ -1,7 +1,9 @@
 extends Node3D
 
 var my_root = "res://my_scenes/"
+var my_renders_root = "res://panoramas/"
 var my_scenes:Dictionary = {}
+var my_renders:Dictionary = {}
 var current_scene:PackedScene
 var scene_instance:Node
 
@@ -10,10 +12,12 @@ func _ready():
 	#%MessageLabel.text = ''
 	%ErrorLabel.text = ''
 	fetch_scenes_from_dir(my_root)
+	fetch_renders_from_dir(my_renders_root)
 	print(my_scenes)
 	for scene_name in my_scenes.keys():
 		%ScenesMenuBar/Scenes.add_item(scene_name)
-
+	for render_name in my_renders.keys():
+		%RendersMenuBar/Renders.add_item(render_name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,6 +49,27 @@ func fetch_scenes_from_dir(path):
 		print("An error occurred when trying to access the path.")
 
 
+func fetch_renders_from_dir(path):
+	var dir := DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name:String = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				print("Found directory: ", file_name)
+			else:
+				print("Found file: ", file_name)
+				# Check if scene
+				if file_name.ends_with('.png'):
+					# Add to list of valid scenes to load
+					var file_path:String = dir.get_current_dir() + '/' + file_name
+					my_renders[file_name] = file_path
+					print('Full file path: ', file_path)
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access the path.")
+
+
 func _on_scenes_index_pressed(index):
 	var id = %ScenesMenuBar/Scenes.get_item_text(index)
 	print('POPUP INDEX: ', index, id)
@@ -58,13 +83,23 @@ func _on_scenes_index_pressed(index):
 	%RenderButton.disabled = false
 
 
+func _on_renders_index_pressed(index: int) -> void:
+	var id = %RendersMenuBar/Renders.get_item_text(index)
+	print('RENDERS INDEX: ', index, id)
+	var selected_render:Resource = load(my_renders[id])
+	%NotificationWindow.title = "Preview: {filename}".format({"filename": my_renders[id]}) 
+	%NotificationWindow.show()
+	# load image into panorama viwer, displayed in message popup
+	%PanoramaViewer.panorama = selected_render
+
+
 func _on_render_button_pressed() -> void:
 	if not current_scene: return
 	
 	%PanoramaMaker.save_file_name = scene_instance.name
 	if %PanoramaMaker.save_file_name: 
 		print('SAVING: ', %PanoramaMaker.save_file_name)
-		var output_file = await %PanoramaMaker.save_panorama()
+		var output_file:String = await %PanoramaMaker.save_panorama()
 		var message:String = "Saved: {filename}".format({"filename": output_file})
 		%NotificationWindow.title = message 
 		%NotificationWindow.show()
@@ -87,3 +122,6 @@ func _on_notification_window_focus_exited() -> void:
 	#%MessageLabel.text = ''
 	%ErrorLabel.text = ''
 	%NotificationWindow.hide()
+
+
+
