@@ -7,7 +7,7 @@ var scene_instance:Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	%MessageLabel.text = ''
+	#%MessageLabel.text = ''
 	%ErrorLabel.text = ''
 	fetch_scenes_from_dir(my_root)
 	print(my_scenes)
@@ -18,6 +18,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("ui_cancel"): get_tree().quit()
 	
 
 func fetch_scenes_from_dir(path):
@@ -41,7 +45,6 @@ func fetch_scenes_from_dir(path):
 		print("An error occurred when trying to access the path.")
 
 
-
 func _on_scenes_index_pressed(index):
 	var id = %ScenesMenuBar/Scenes.get_item_text(index)
 	print('POPUP INDEX: ', index, id)
@@ -51,33 +54,36 @@ func _on_scenes_index_pressed(index):
 	scene_instance = current_scene.instantiate()
 	%MyScene.call_deferred("add_child", scene_instance)
 	# set label name
-	%SelectedSceneLabel.text = scene_instance.name
-	
+	%SelectedSceneLabel.text = scene_instance.name	
+	%RenderButton.disabled = false
 
 
 func _on_render_button_pressed() -> void:
-	if current_scene:
-		%PanoramaMaker.save_file_name = scene_instance.name
-		if %PanoramaMaker.save_file_name: 
-			var output_file = await %PanoramaMaker.save_panorama()
-			var message:String = "Saved: {filename}".format({"filename": output_file})
-			%MessageLabel.text = message
-			%NotificationWindow.show()
-			print('SAVING: ', %PanoramaMaker.save_file_name)
+	if not current_scene: return
+	
+	%PanoramaMaker.save_file_name = scene_instance.name
+	if %PanoramaMaker.save_file_name: 
+		print('SAVING: ', %PanoramaMaker.save_file_name)
+		var output_file = await %PanoramaMaker.save_panorama()
+		var message:String = "Saved: {filename}".format({"filename": output_file})
+		%NotificationWindow.title = message 
+		%NotificationWindow.show()
+		# load image into panorama viwer, displayed in message popup
+		%PanoramaViewer.panorama = load(output_file)
 
 
 func _on_popup_popup_hide() -> void:
-	%MessageLabel.text = ''
+	#%MessageLabel.text = ''
 	%ErrorLabel.text = ''
 
 
 func _on_notification_window_close_requested() -> void:
-	%MessageLabel.text = ''
+	#%MessageLabel.text = ''
 	%ErrorLabel.text = ''
 	%NotificationWindow.hide()
 
 
 func _on_notification_window_focus_exited() -> void:
-	%MessageLabel.text = ''
+	#%MessageLabel.text = ''
 	%ErrorLabel.text = ''
 	%NotificationWindow.hide()

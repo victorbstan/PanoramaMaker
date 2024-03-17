@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://1qokgtt0ghfg"]
+[gd_scene load_steps=4 format=3 uid="uid://1qokgtt0ghfg"]
 
 [ext_resource type="PackedScene" uid="uid://gm841tkv0myb" path="res://panorama_maker/panorama_maker.tscn" id="1_khbqv"]
 [ext_resource type="Script" path="res://main.gd" id="1_vdsib"]
+[ext_resource type="PackedScene" uid="uid://mav1wpgo44we" path="res://panorama_viewer/panorama_viewer.tscn" id="3_uf55a"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vdsib")
@@ -23,9 +24,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI"]
-custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
-offset_right = 140.0
+offset_right = 82.0
 offset_bottom = 51.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -65,12 +65,11 @@ text = "Select a scene to preview and render... "
 
 [node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/UI"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(140, 0)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -140.0
+offset_left = -84.0
 offset_bottom = 51.0
 grow_horizontal = 0
 theme_override_constants/margin_left = 10
@@ -83,34 +82,33 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+disabled = true
 text = "Render"
 
 [node name="NotificationWindow" type="Window" parent="CanvasLayer/UI"]
 unique_name_in_owner = true
 title = "Notification"
 initial_position = 2
-size = Vector2i(400, 118)
+size = Vector2i(1920, 960)
 visible = false
 wrap_controls = true
 transient = true
-unresizable = true
 popup_window = true
+extend_to_title = true
+force_native = true
 keep_title_visible = true
 content_scale_size = Vector2i(400, 200)
 
+[node name="PanoramaViewer" parent="CanvasLayer/UI/NotificationWindow" instance=ExtResource("3_uf55a")]
+unique_name_in_owner = true
+
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/NotificationWindow"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = -60.0
-offset_right = 110.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 4
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -43.0
+offset_right = 301.0
+grow_vertical = 0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -119,13 +117,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MessageLabel" type="Label" parent="CanvasLayer/UI/NotificationWindow/MarginContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.392157)
-text = "Message label"
-horizontal_alignment = 1
-autowrap_mode = 2
+text = "Navigate using keyboard arrow keys"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/NotificationWindow"]
 auto_translate_mode = 1

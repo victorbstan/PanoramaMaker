@@ -6,7 +6,6 @@
 
 [node name="PanoramaMaker" type="Node3D"]
 script = ExtResource("1_waa14")
-save_file_name = "2-panorama"
 texture_filter = "linear"
 antialias_msaa = true
 

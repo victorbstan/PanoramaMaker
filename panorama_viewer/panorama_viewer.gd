@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var panorama:Texture2D = preload("res://panoramas/untitled-panorama.png")
+@export var panorama:Texture2D = preload("res://assets/sample-panorama.png")
 
 
 # Called when the node enters the scene tree for the first time.

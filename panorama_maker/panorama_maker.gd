@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var save_file_name:String = 'untitled-panorama'
+@export var save_file_name:String
 #DCI = 1K 1024(horizontal) x 540(vertical) = 552.960 pixels.
 #DCI 2K = 2048 x 1080 = 2.211.840
 #DCI 4K = 4096 x 2160 = 8.847.360
@@ -45,8 +45,6 @@ func _ready():
 	panorama.set_custom_texture_filter(texture_filter)
 	panorama.set_from_cubemap($CubeCam)
 	panorama.process_textures() # call after parameter changes
-	
-	save_panorama()
 
 
 # save panorama as PNG file
