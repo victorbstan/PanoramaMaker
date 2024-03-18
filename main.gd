@@ -10,12 +10,9 @@ var scene_instance:Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%ErrorLabel.text = ''
-	fetch_scenes_from_dir(my_root)
-	fetch_renders_from_dir(my_renders_root)
-	for scene_name in my_scenes.keys():
-		%ScenesMenuBar/Scenes.add_item(scene_name)
-	for render_name in my_renders.keys():
-		%RendersMenuBar/Renders.add_item(render_name)
+	update_scened_menu()
+	update_renders_menu()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,7 +21,23 @@ func _process(delta):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("ui_cancel"): get_tree().quit()
+
+
+func update_scened_menu():
+	# get list of available scenes for menu options
+	fetch_scenes_from_dir(my_root)
+	%ScenesMenuBar/Scenes.clear()
+	for scene_name in my_scenes.keys():
+		%ScenesMenuBar/Scenes.add_item(scene_name)
 	
+
+func update_renders_menu():
+	# get list of available rendered images for menu options
+	fetch_renders_from_dir(my_renders_root)
+	%RendersMenuBar/Renders.clear()
+	for render_name in my_renders.keys():
+		%RendersMenuBar/Renders.add_item(render_name)
+
 
 func fetch_scenes_from_dir(path):
 	var dir := DirAccess.open(path)
@@ -107,11 +120,13 @@ func _on_render_button_pressed() -> void:
 		print('SAVING: ', %PanoramaMaker.save_file_name)
 		var output_file:String = await %PanoramaMaker.save_panorama()
 		var message:String = "Saved: {filename}".format({"filename": output_file})
+		# Show preview popup
 		%NotificationWindow.title = message
 		%NotificationWindow.show()
-		# load image into panorama viwer, displayed in message popup
-		%PanoramaViewer.panorama = load(output_file)
+		# load image into panorama viwer, displayed in popup
+		%PanoramaViewer.panorama = await load(output_file)
 		%PanoramaViewer.setup()
+
 
 func _on_popup_popup_hide() -> void:
 	%ErrorLabel.text = ''
@@ -133,11 +148,13 @@ func _on_capture_resolution_index_pressed(index: int) -> void:
 	%PanoramaMaker.capture_resolution = selection
 	%PanoramaMaker.setup()
 
+
 func _on_output_resolution_index_pressed(index: int) -> void:
 	var selection = %OutputResolutionMenuBar/"Output Resolution".get_item_text(index)
 	print('OUTPUT RES. CHOICE: ', index, ' - ', selection)
 	%PanoramaMaker.output_resolution = selection
 	%PanoramaMaker.setup()
+
 
 func _on_texture_filter_index_pressed(index: int) -> void:
 	var selection = %FilterMenuBar/"Texture Filter".get_item_text(index)
@@ -145,7 +162,16 @@ func _on_texture_filter_index_pressed(index: int) -> void:
 	%PanoramaMaker.texture_filter = selection
 	%PanoramaMaker.setup()
 
+
 func _on_antialias_check_box_toggled(toggled_on: bool) -> void:
 	print('ANTIALIAS CHOICE: ', toggled_on)
 	%PanoramaMaker.antialias_msaa = toggled_on
 	%PanoramaMaker.setup()
+
+
+func _on_scenes_about_to_popup() -> void:
+	update_scened_menu()
+
+
+func _on_renders_about_to_popup() -> void:
+	update_renders_menu()

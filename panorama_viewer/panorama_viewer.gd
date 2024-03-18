@@ -15,5 +15,7 @@ func _process(delta):
 
 
 func setup():
+	# TODO: check that this works for new files, not yet inported to GODOT
 	sky_material.panorama = panorama
 	$WorldEnvironment.environment.sky.sky_material = sky_material
+	print('PREVIEW: ', panorama.resource_path)

@@ -228,7 +228,9 @@ text = "Error"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[connection signal="about_to_popup" from="CanvasLayer/UI/MarginContainer/HBoxContainer/ScenesMenuBar/Scenes" to="." method="_on_scenes_about_to_popup"]
 [connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer/HBoxContainer/ScenesMenuBar/Scenes" to="." method="_on_scenes_index_pressed"]
+[connection signal="about_to_popup" from="CanvasLayer/UI/MarginContainer/HBoxContainer/RendersMenuBar/Renders" to="." method="_on_renders_about_to_popup"]
 [connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer/HBoxContainer/RendersMenuBar/Renders" to="." method="_on_renders_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/CaptureResolutionMenuBar/Capture Resolution" to="." method="_on_capture_resolution_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/OutputResolutionMenuBar/Output Resolution" to="." method="_on_output_resolution_index_pressed"]
