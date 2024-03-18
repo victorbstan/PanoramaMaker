@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://1qokgtt0ghfg"]
+[gd_scene load_steps=5 format=3 uid="uid://1qokgtt0ghfg"]
 
 [ext_resource type="PackedScene" uid="uid://gm841tkv0myb" path="res://panorama_maker/panorama_maker.tscn" id="1_khbqv"]
 [ext_resource type="Script" path="res://main.gd" id="1_vdsib"]
 [ext_resource type="PackedScene" uid="uid://mav1wpgo44we" path="res://panorama_viewer/panorama_viewer.tscn" id="3_uf55a"]
+
+[sub_resource type="World3D" id="World3D_p8y8g"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vdsib")
@@ -90,7 +92,8 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="SceneFileName" type="TextEdit" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "Customize name of saved file (optional)"
@@ -104,6 +107,7 @@ layout_mode = 2
 
 [node name="Capture Resolution" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer/CaptureResolutionMenuBar"]
 auto_translate_mode = 1
+title = "Capture Resolution"
 item_count = 5
 item_0/text = "256"
 item_1/text = "512"
@@ -122,6 +126,7 @@ layout_mode = 2
 
 [node name="Output Resolution" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer/OutputResolutionMenuBar"]
 auto_translate_mode = 1
+title = "Output Resolution"
 item_count = 4
 item_0/text = "1K"
 item_1/text = "2K"
@@ -139,8 +144,8 @@ layout_mode = 2
 [node name="Texture Filter" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer/FilterMenuBar"]
 auto_translate_mode = 1
 item_count = 2
-item_0/text = "Linear"
-item_1/text = "Nearest"
+item_0/text = "linear"
+item_1/text = "nearest"
 item_1/id = 1
 
 [node name="AntialiasCheckBox" type="CheckBox" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
@@ -159,6 +164,8 @@ text = "Render"
 
 [node name="NotificationWindow" type="Window" parent="CanvasLayer/UI"]
 unique_name_in_owner = true
+own_world_3d = true
+world_3d = SubResource("World3D_p8y8g")
 title = "Notification"
 initial_position = 2
 size = Vector2i(1920, 960)
@@ -223,6 +230,10 @@ autowrap_mode = 2
 
 [connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer/HBoxContainer/ScenesMenuBar/Scenes" to="." method="_on_scenes_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer/HBoxContainer/RendersMenuBar/Renders" to="." method="_on_renders_index_pressed"]
+[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/CaptureResolutionMenuBar/Capture Resolution" to="." method="_on_capture_resolution_index_pressed"]
+[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/OutputResolutionMenuBar/Output Resolution" to="." method="_on_output_resolution_index_pressed"]
+[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/FilterMenuBar/Texture Filter" to="." method="_on_texture_filter_index_pressed"]
+[connection signal="toggled" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/AntialiasCheckBox" to="." method="_on_antialias_check_box_toggled"]
 [connection signal="pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/RenderButton" to="." method="_on_render_button_pressed"]
 [connection signal="close_requested" from="CanvasLayer/UI/NotificationWindow" to="." method="_on_notification_window_close_requested"]
 [connection signal="focus_exited" from="CanvasLayer/UI/NotificationWindow" to="." method="_on_notification_window_focus_exited"]

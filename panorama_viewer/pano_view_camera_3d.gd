@@ -27,4 +27,3 @@ func _process(delta):
 		my_euler.x = lerp_angle(my_euler.x, new_euler.x, angle_increment*delta)
 		
 	set_rotation_degrees(my_euler)
-

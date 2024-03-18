@@ -40,7 +40,7 @@ func setup():
 	for viewport:SubViewport in get_tree().get_nodes_in_group('viewport'):
 		viewport.size = Vector2(cube_size, cube_size)
 		viewport.positional_shadow_atlas_size = shadow_atlast_size
-		# msaa
+		# antialias msaa
 		if antialias_msaa: viewport.msaa_3d = 3
 		else: viewport.msaa_3d = 0
 		# texture filter
@@ -49,6 +49,7 @@ func setup():
 				viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR
 			"nearest": 
 				viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+	print('CUBECAM SETTINGS: ', cube_size, ' ', texture_filter, ' ', antialias_msaa)
 
 
 func get_forward_texture():
