@@ -15,4 +15,4 @@ panoramas/*
 .godot
 .DS_Store
 
-!.gitignore
+!.gitkeep
