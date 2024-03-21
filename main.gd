@@ -59,6 +59,7 @@ func fetch_scenes_from_dir(path):
 	else:
 		print("An error occurred when trying to access the path.")
 
+
 # NOTE: File access could be refactored into something more modular, but it's "only" two copies ATM...
 func fetch_renders_from_dir(path):
 	var dir := DirAccess.open(path)
@@ -106,6 +107,10 @@ func _on_scenes_index_pressed(index):
 	%RenderButton.disabled = false
 	# set filename text
 	%SceneFileName.text = scene_instance.name
+	# update default settings from ui widgets
+	%PanoramaMaker.capture_resolution = str(%CaptureResolutionOptions.get_selected_id())
+	%PanoramaMaker.output_resolution = str(%OutputResolutionOptions.get_selected_id())
+	%PanoramaMaker.texture_filter = %TextureFilterOptions.get_item_text(%TextureFilterOptions.get_selected_id())
 
 
 func _on_renders_index_pressed(index: int) -> void:
@@ -118,6 +123,7 @@ func _on_renders_index_pressed(index: int) -> void:
 
 func _on_render_button_pressed() -> void:
 	if not current_scene: return
+	
 	%PanoramaMaker.setup()
 	print('RENDER SETTINGS APPLIED: ', %PanoramaMaker.capture_resolution, ' ', %PanoramaMaker.output_resolution, ' ', %PanoramaMaker.texture_filter, ' ', %PanoramaMaker.antialias_msaa)
 	%PanoramaMaker.save_file_name = %SceneFileName.text
@@ -131,10 +137,6 @@ func _on_render_button_pressed() -> void:
 		preview_panorama_image(output_file)
 
 
-func _on_popup_popup_hide() -> void:
-	%ErrorLabel.text = ''
-
-
 func _on_notification_window_close_requested() -> void:
 	%ErrorLabel.text = ''
 	%NotificationWindow.hide()
@@ -145,25 +147,25 @@ func _on_notification_window_focus_exited() -> void:
 	%NotificationWindow.hide()
 
 
-func _on_capture_resolution_index_pressed(index: int) -> void:
-	var selection = %CaptureResolutionMenuBar/"Capture Resolution".get_item_text(index)
-	print('CAPTURE RES. CHOICE: ', index, ' - ', selection)
-	%PanoramaMaker.capture_resolution = selection
-	%PanoramaMaker.setup()
-
-
-func _on_output_resolution_index_pressed(index: int) -> void:
-	var selection = %OutputResolutionMenuBar/"Output Resolution".get_item_text(index)
-	print('OUTPUT RES. CHOICE: ', index, ' - ', selection)
-	%PanoramaMaker.output_resolution = selection
-	%PanoramaMaker.setup()
-
-
-func _on_texture_filter_index_pressed(index: int) -> void:
-	var selection = %FilterMenuBar/"Texture Filter".get_item_text(index)
-	print('FILTER CHOICE: ', index, ' - ', selection)
-	%PanoramaMaker.texture_filter = selection
-	%PanoramaMaker.setup()
+#func _on_capture_resolution_index_pressed(index: int) -> void:
+	#var selection = %CaptureResolutionMenuBar/"Capture Resolution".get_item_text(index)
+	#print('CAPTURE RES. CHOICE: ', index, ' - ', selection)
+	#%PanoramaMaker.capture_resolution = selection
+	#%PanoramaMaker.setup()
+#
+#
+#func _on_output_resolution_index_pressed(index: int) -> void:
+	#var selection = %OutputResolutionMenuBar/"Output Resolution".get_item_text(index)
+	#print('OUTPUT RES. CHOICE: ', index, ' - ', selection)
+	#%PanoramaMaker.output_resolution = selection
+	#%PanoramaMaker.setup()
+#
+#
+#func _on_texture_filter_index_pressed(index: int) -> void:
+	#var selection = %FilterMenuBar/"Texture Filter".get_item_text(index)
+	#print('FILTER CHOICE: ', index, ' - ', selection)
+	#%PanoramaMaker.texture_filter = selection
+	#%PanoramaMaker.setup()
 
 
 func _on_antialias_check_box_toggled(toggled_on: bool) -> void:
@@ -178,3 +180,27 @@ func _on_scenes_about_to_popup() -> void:
 
 func _on_renders_about_to_popup() -> void:
 	update_renders_menu()
+
+
+func _on_capture_resolution_options_item_selected(index: int) -> void:
+	#@export_enum("256", "512", "1024", "2048", "4096") var capture_resolution:String = "1024"
+	var selection:String = str(%CaptureResolutionOptions.get_selected_id())
+	print('CAPTURE RES. OPTION: ', index, ' - ', selection)
+	%PanoramaMaker.capture_resolution = selection
+	%PanoramaMaker.setup()
+
+
+func _on_output_resolution_options_item_selected(index: int) -> void:
+	#@export_enum("512", "1024", "2048", "4096", "8192") var output_resolution:String = "2048"
+	var selection:String = str(%OutputResolutionOptions.get_selected_id())
+	print('OUTPUT RES. OPTION: ', index, ' - ', selection)
+	%PanoramaMaker.output_resolution = selection
+	%PanoramaMaker.setup()
+
+
+func _on_texture_filter_options_item_selected(index: int) -> void:
+	# "linear" or "nearest"
+	var selection:String = %TextureFilterOptions.get_item_text(%TextureFilterOptions.get_selected_id())
+	print('FILTER OPTION: ', index, ' - ', selection)
+	%PanoramaMaker.texture_filter = selection
+	%PanoramaMaker.setup()

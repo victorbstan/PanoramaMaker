@@ -5,8 +5,8 @@ extends Node3D
 #DCI 2K = 2048 x 1080 = 2.211.840
 #DCI 4K = 4096 x 2160 = 8.847.360
 #DCI 8K = 8192 x 4320 = 35.389.440
-@export_enum("1K", "2K", "4K", "8K") var output_resolution:String = "2K"
 @export_enum("256", "512", "1024", "2048", "4096") var capture_resolution:String = "1024"
+@export_enum("512", "1024", "2048", "4096", "8192") var output_resolution:String = "2048"
 @export_enum("linear", "nearest") var texture_filter:String = "nearest"
 @export var antialias_msaa:bool = false
 
@@ -55,10 +55,11 @@ func setup():
 		"nearest": renderer.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	
 	match output_resolution:
-		"1K": renderer.size = Vector2(1024, 512)
-		"2K": renderer.size = Vector2(2048, 1024)
-		"4K": renderer.size = Vector2(4096, 2048)
-		"8K": renderer.size = Vector2(8192, 4096)
+		"512": renderer.size = Vector2(512, 256)
+		"1024": renderer.size = Vector2(1024, 512)
+		"2048": renderer.size = Vector2(2048, 1024)
+		"4096": renderer.size = Vector2(4096, 2048)
+		"8192": renderer.size = Vector2(8192, 4096)
 		
 	match capture_resolution:
 		"256": cube_cam.cube_size = 256

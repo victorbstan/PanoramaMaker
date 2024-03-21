@@ -2,7 +2,7 @@ extends Node3D
 
 @export_subgroup("Settings Viewport")
 @export var cube_size:float = 512
-@export var shadow_atlast_size:float = 1024
+@export var shadow_atlast_size:int = 1024
 @export_enum("linear", "nearest") var texture_filter:String = "nearest"
 
 @export_subgroup("Settings Camera")
