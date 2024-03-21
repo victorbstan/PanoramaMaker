@@ -14,5 +14,6 @@ panoramas/*
 .vscode
 .godot
 .DS_Store
+.tmp
 
 !.gitkeep
