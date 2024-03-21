@@ -80,6 +80,14 @@ func fetch_renders_from_dir(path):
 	else:
 		print("An error occurred when trying to access the path.")
 
+
+func preview_panorama_image(path:String) -> void:
+	# load image into panorama viwer, displayed in message popup
+	var image := Image.load_from_file(path)
+	var selected_render:Texture2D = ImageTexture.create_from_image(image)
+	%PanoramaViewer.panorama = selected_render
+	%PanoramaViewer.setup()
+
 #
 # EVENTS
 #
@@ -103,12 +111,9 @@ func _on_scenes_index_pressed(index):
 func _on_renders_index_pressed(index: int) -> void:
 	var id = %RendersMenuBar/Renders.get_item_text(index)
 	print('RENDERS INDEX: ', index, ' - ', id)
-	var selected_render:Resource = load(my_renders[id])
 	%NotificationWindow.title = "Preview: {filename}".format({"filename": my_renders[id]}) 
 	%NotificationWindow.show()
-	# load image into panorama viwer, displayed in message popup
-	%PanoramaViewer.panorama = selected_render
-	%PanoramaViewer.setup()
+	preview_panorama_image(my_renders[id])
 
 
 func _on_render_button_pressed() -> void:
@@ -123,9 +128,7 @@ func _on_render_button_pressed() -> void:
 		# Show preview popup
 		%NotificationWindow.title = message
 		%NotificationWindow.show()
-		# load image into panorama viwer, displayed in popup
-		%PanoramaViewer.panorama = await load(output_file)
-		%PanoramaViewer.setup()
+		preview_panorama_image(output_file)
 
 
 func _on_popup_popup_hide() -> void:
