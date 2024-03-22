@@ -6,8 +6,8 @@ var sky_material:PanoramaSkyMaterial = PanoramaSkyMaterial.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sky_material.panorama = panorama
-	$WorldEnvironment.environment.sky.sky_material = sky_material
+	setup()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -15,6 +15,10 @@ func _process(delta):
 
 
 func setup():
-	# TODO: check that this works for new files, not yet inported to GODOT
 	sky_material.panorama = panorama
 	$WorldEnvironment.environment.sky.sky_material = sky_material
+	$WorldEnvironment.environment.sky.sky_material.filter = false
+
+
+func _on_texture_filter_check_button_toggled(toggled_on: bool) -> void:
+	$WorldEnvironment.environment.sky.sky_material.filter = toggled_on
