@@ -10,10 +10,9 @@ extends Node3D
 @export_enum("linear", "nearest") var texture_filter:String = "nearest"
 @export var antialias_msaa:bool = false
 
-@onready var render_container := $RendererContainer
-@onready var renderer := $RendererContainer/Renderer
-@onready var panorama := $RendererContainer/Renderer/Panorama
-@onready var cube_cam := $CubeCam
+@onready var renderer := %Renderer
+@onready var panorama := %Panorama
+@onready var cube_cam := %CubeCam
 
 
 # Called when the node enters the scene tree for the first time.
@@ -74,5 +73,5 @@ func setup():
 	
 	# bind our camera images to our panorama render
 	panorama.set_custom_texture_filter(texture_filter)
-	panorama.set_from_cubemap($CubeCam)
+	panorama.set_from_cubemap(cube_cam)
 	panorama.process_textures() # call after parameter changes
