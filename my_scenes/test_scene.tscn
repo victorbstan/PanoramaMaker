@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://cnkji4tk7ol7q"]
 
-[ext_resource type="Texture2D" uid="uid://co6sari52pp6" path="res://assets/kloofendal_43d_clear_puresky_1k.hdr" id="2_jhxle"]
+[ext_resource type="Texture2D" uid="uid://c6dmtxkb5jdjk" path="res://assets/belfast_sunset_puresky_2k.hdr" id="1_n5wlw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xepkk"]
-panorama = ExtResource("2_jhxle")
+panorama = ExtResource("1_n5wlw")
 
 [sub_resource type="Sky" id="Sky_rhxex"]
 sky_material = SubResource("PanoramaSkyMaterial_xepkk")
@@ -60,7 +60,8 @@ size = Vector3(0.5, 0.5, 0.5)
 [node name="TestScene" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707107, 0.5, -0.5, 2.4663e-16, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 6.21523, 0)
+transform = Transform3D(0.512598, 0.0961868, -0.853225, -2.98023e-08, 0.993706, 0.112024, 0.858629, -0.0574229, 0.509371, 0, 6.21523, 0)
+light_color = Color(1, 0.843137, 0.498039, 1)
 light_cull_mask = 4293918721
 shadow_enabled = true
 
