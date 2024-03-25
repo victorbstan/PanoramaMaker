@@ -4,7 +4,6 @@
 
 [node name="CubeCam" type="Node3D"]
 script = ExtResource("1")
-shadow_atlast_size = 2048.0
 
 [node name="ForwardViewport" type="SubViewport" parent="." groups=["viewport"]]
 use_debanding = true

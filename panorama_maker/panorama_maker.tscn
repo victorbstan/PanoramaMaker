@@ -13,6 +13,7 @@ antialias_msaa = true
 
 [node name="CubeCam" parent="." instance=ExtResource("2_0mjrc")]
 unique_name_in_owner = true
+shadow_atlast_size = 1024
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -33,6 +34,7 @@ own_world_3d = true
 world_3d = SubResource("World3D_4lkkv")
 handle_input_locally = false
 size = Vector2i(1024, 512)
+render_target_update_mode = 4
 
 [node name="Panorama" parent="CenterContainer/RendererContainer/Renderer" instance=ExtResource("1_82c4m")]
 unique_name_in_owner = true

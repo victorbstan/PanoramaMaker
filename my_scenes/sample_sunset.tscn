@@ -1,14 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://fra5e50dytq6"]
+[gd_scene load_steps=18 format=3 uid="uid://cnkji4tk7ol7q"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_qunwp"]
+[ext_resource type="Texture2D" uid="uid://c6dmtxkb5jdjk" path="res://assets/hdri/belfast_sunset_puresky_2k.hdr" id="1_n5wlw"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xepkk"]
+panorama = ExtResource("1_n5wlw")
 
 [sub_resource type="Sky" id="Sky_rhxex"]
-sky_material = SubResource("PhysicalSkyMaterial_qunwp")
+sky_material = SubResource("PanoramaSkyMaterial_xepkk")
 
 [sub_resource type="Environment" id="Environment_ef73u"]
 background_mode = 2
 sky = SubResource("Sky_rhxex")
-tonemap_exposure = 0.16
+tonemap_exposure = 0.05
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h3jue"]
 
@@ -54,29 +57,11 @@ albedo_color = Color(1, 0, 1, 1)
 material = SubResource("StandardMaterial3D_x08ti")
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_r8pyn"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ljm55"]
-seamless = true
-noise = SubResource("FastNoiseLite_r8pyn")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eu2kn"]
-shading_mode = 0
-albedo_texture = SubResource("NoiseTexture2D_ljm55")
-grow = true
-
-[sub_resource type="SphereMesh" id="SphereMesh_ahuiy"]
-material = SubResource("StandardMaterial3D_eu2kn")
-flip_faces = true
-radius = 500.0
-height = 1000.0
-radial_segments = 32
-rings = 16
-
-[node name="TestScene" type="Node3D"]
+[node name="sample_sunset" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.512941, -0.858374, -0.00929872, 0.0226806, -0.0243803, 0.999446, -0.858124, 0.512446, 0.0319748, 0, 6.21523, 0)
+transform = Transform3D(0.512598, 0.0961868, -0.853225, -2.98023e-08, 0.993706, 0.112024, 0.858629, -0.0574229, 0.509371, 0, 6.21523, 0)
+light_color = Color(1, 0.843137, 0.498039, 1)
 light_cull_mask = 4293918721
 shadow_enabled = true
 
@@ -113,7 +98,3 @@ skeleton = NodePath("")
 transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.08165e-12, -2.5)
 mesh = SubResource("BoxMesh_3chfi")
 skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-cast_shadow = 0
-mesh = SubResource("SphereMesh_ahuiy")

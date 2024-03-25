@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnkji4tk7ol7q"]
+[gd_scene load_steps=18 format=3 uid="uid://cl8a6gw6majcg"]
 
-[ext_resource type="Texture2D" uid="uid://c6dmtxkb5jdjk" path="res://assets/belfast_sunset_puresky_2k.hdr" id="1_n5wlw"]
+[ext_resource type="Texture2D" uid="uid://do65p5gsv2208" path="res://assets/hdri/dikhololo_night_2k.hdr" id="1_wbx1p"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xepkk"]
-panorama = ExtResource("1_n5wlw")
+panorama = ExtResource("1_wbx1p")
 
 [sub_resource type="Sky" id="Sky_rhxex"]
 sky_material = SubResource("PanoramaSkyMaterial_xepkk")
@@ -11,7 +11,7 @@ sky_material = SubResource("PanoramaSkyMaterial_xepkk")
 [sub_resource type="Environment" id="Environment_ef73u"]
 background_mode = 2
 sky = SubResource("Sky_rhxex")
-tonemap_exposure = 0.16
+tonemap_exposure = 0.5
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h3jue"]
 
@@ -57,11 +57,11 @@ albedo_color = Color(1, 0, 1, 1)
 material = SubResource("StandardMaterial3D_x08ti")
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="TestScene" type="Node3D"]
+[node name="sample_realistic_night" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.512598, 0.0961868, -0.853225, -2.98023e-08, 0.993706, 0.112024, 0.858629, -0.0574229, 0.509371, 0, 6.21523, 0)
-light_color = Color(1, 0.843137, 0.498039, 1)
+transform = Transform3D(-0.999472, -0.0229755, 0.0229756, -0.0264886, 0.985663, -0.166637, -0.0188176, -0.167157, -0.985751, 0, 6.21523, 0)
+light_energy = 0.1
 light_cull_mask = 4293918721
 shadow_enabled = true
 

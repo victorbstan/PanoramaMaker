@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cndog7soswsiw"
-path.bptc="res://.godot/imported/farm_field_puresky_2k.hdr-63c3768f586b7b1b432e565e8b27285b.bptc.ctex"
+uid="uid://co6sari52pp6"
+path="res://.godot/imported/kloofendal_43d_clear_puresky_1k.hdr-81849d7ccd3572c45bff4a6a11064ab2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/farm_field_puresky_2k.hdr"
-dest_files=["res://.godot/imported/farm_field_puresky_2k.hdr-63c3768f586b7b1b432e565e8b27285b.bptc.ctex"]
+source_file="res://assets/hdri/kloofendal_43d_clear_puresky_1k.hdr"
+dest_files=["res://.godot/imported/kloofendal_43d_clear_puresky_1k.hdr-81849d7ccd3572c45bff4a6a11064ab2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -30,6 +29,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
-process/hdr_clamp_exposure=false
+process/hdr_clamp_exposure=true
 process/size_limit=0
 detect_3d/compress_to=0

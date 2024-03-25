@@ -1,9 +1,9 @@
 [gd_scene load_steps=37 format=3 uid="uid://crk05byjx0r5l"]
 
-[ext_resource type="Texture2D" uid="uid://co6sari52pp6" path="res://assets/kloofendal_43d_clear_puresky_1k.hdr" id="1_kn3va"]
+[ext_resource type="Texture2D" uid="uid://cndog7soswsiw" path="res://assets/hdri/farm_field_puresky_2k.hdr" id="1_74lot"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xepkk"]
-panorama = ExtResource("1_kn3va")
+panorama = ExtResource("1_74lot")
 
 [sub_resource type="Sky" id="Sky_rhxex"]
 sky_material = SubResource("PanoramaSkyMaterial_xepkk")
@@ -11,7 +11,9 @@ sky_material = SubResource("PanoramaSkyMaterial_xepkk")
 [sub_resource type="Environment" id="Environment_ef73u"]
 background_mode = 2
 sky = SubResource("Sky_rhxex")
-tonemap_exposure = 0.16
+tonemap_mode = 2
+tonemap_exposure = 0.25
+sdfgi_enabled = true
 glow_normalized = true
 fog_light_color = Color(0.796438, 0.816707, 0.848561, 1)
 
@@ -159,7 +161,7 @@ subsurf_scatter_transmittance_enabled = true
 [sub_resource type="SphereMesh" id="SphereMesh_1cnyv"]
 material = SubResource("StandardMaterial3D_mb7w1")
 
-[node name="TestScene2" type="Node3D"]
+[node name="sample_ocean_overcast" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866026, 0.353553, -0.353553, -7.98554e-09, 0.707107, 0.707107, 0.500001, -0.612372, 0.612372, 0, 6.21523, 0)
@@ -206,59 +208,74 @@ cast_shadow = 0
 mesh = SubResource("PlaneMesh_8mijc")
 
 [node name="ReflectionProbe2" type="ReflectionProbe" parent="."]
-size = Vector3(1000, 100, 1000)
-box_projection = true
+size = Vector3(10, 10, 10)
+
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 249.5)
+size = Vector3(1000, 10, 500)
+
+[node name="ReflectionProbe4" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -250.5)
+size = Vector3(1000, 10, 500)
+
+[node name="ReflectionProbe5" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -251, 0, 0)
+size = Vector3(500, 10, 1000)
+
+[node name="ReflectionProbe6" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.5, 0, 0)
+size = Vector3(500, 10, 1000)
 
 [node name="VisSpheres" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VisSpheres"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_7u5da")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="VisSpheres"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_apiep")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="VisSpheres"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_twdgi")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="VisSpheres"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_1cnyv")
 skeleton = NodePath("../..")
 
 [node name="VisSpheres2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="VisSpheres2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_7u5da")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="VisSpheres2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_apiep")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="VisSpheres2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_twdgi")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="VisSpheres2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_1cnyv")
 skeleton = NodePath("../..")

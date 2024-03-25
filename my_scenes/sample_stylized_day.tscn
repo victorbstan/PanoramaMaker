@@ -1,17 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://cl8a6gw6majcg"]
+[gd_scene load_steps=17 format=3 uid="uid://fra5e50dytq6"]
 
-[ext_resource type="Texture2D" uid="uid://do65p5gsv2208" path="res://assets/dikhololo_night_2k.hdr" id="1_wbx1p"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xepkk"]
-panorama = ExtResource("1_wbx1p")
+[ext_resource type="Material" uid="uid://dh6ykun8bv60u" path="res://assets/sky/examples/day_sky.tres" id="1_1lwqp"]
 
 [sub_resource type="Sky" id="Sky_rhxex"]
-sky_material = SubResource("PanoramaSkyMaterial_xepkk")
+sky_material = ExtResource("1_1lwqp")
 
 [sub_resource type="Environment" id="Environment_ef73u"]
 background_mode = 2
 sky = SubResource("Sky_rhxex")
-tonemap_exposure = 0.16
+tonemap_mode = 2
+sdfgi_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h3jue"]
 
@@ -57,11 +55,10 @@ albedo_color = Color(1, 0, 1, 1)
 material = SubResource("StandardMaterial3D_x08ti")
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="TestScene3" type="Node3D"]
+[node name="sample_stylized_day" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.999472, -0.0229755, 0.0229756, -0.0264886, 0.985663, -0.166637, -0.0188176, -0.167157, -0.985751, 0, 6.21523, 0)
-light_energy = 0.1
+transform = Transform3D(-0.512941, -0.858374, -0.00929872, 0.0226806, -0.0243803, 0.999446, -0.858124, 0.512446, 0.0319748, 0, 6.21523, 0)
 light_cull_mask = 4293918721
 shadow_enabled = true
 

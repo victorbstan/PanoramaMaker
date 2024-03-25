@@ -6,8 +6,8 @@ extends Node3D
 @export_enum("linear", "nearest") var texture_filter:String = "nearest"
 
 @export_subgroup("Settings Camera")
-@export var near:float = 0.1
-@export var far:float = 300.0
+@export var near:float = 0.05
+@export var far:float = 4000.0
 @export var antialias_msaa:bool = false
 
 var is_ready = false

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7t5rqv82po25"
-path.bptc="res://.godot/imported/snow_field_2_puresky_2k.hdr-a47ad869c2cb1541fb3bafb6e5e275d0.bptc.ctex"
+uid="uid://cndog7soswsiw"
+path.bptc="res://.godot/imported/farm_field_puresky_2k.hdr-7f06ffc860447efeb32057c8e2cc634e.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/snow_field_2_puresky_2k.hdr"
-dest_files=["res://.godot/imported/snow_field_2_puresky_2k.hdr-a47ad869c2cb1541fb3bafb6e5e275d0.bptc.ctex"]
+source_file="res://assets/hdri/farm_field_puresky_2k.hdr"
+dest_files=["res://.godot/imported/farm_field_puresky_2k.hdr-7f06ffc860447efeb32057c8e2cc634e.bptc.ctex"]
 
 [params]
 
