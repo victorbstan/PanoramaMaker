@@ -41,7 +41,8 @@ func generate_mesh():
 			var pos_y = hp.get_luminance() * max_height + offset_height
 			var vert = Vector3(pos_x, pos_y, pos_z)
 			# Calculate UV coordinates (normalized to 0-1 range)
-			var uv = Vector2(x / float(height - 1), z / float(width - 1))
+			#var uv = Vector2(x / float(height - 1), z / float(width - 1))
+			var uv = Vector2(z / float(width - 1), x / float(height - 1))
 			st.set_uv(uv)
 			st.set_color(hp)
 			# Call last for each vertex, adds the above attributes.
