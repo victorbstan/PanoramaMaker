@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://j53roewyhf3e"]
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://j53roewyhf3e"]
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_cbyti"]
 parameter_name = "Texture2DParameter"
@@ -12,21 +12,6 @@ input_name = "uv"
 output_port_for_preview = 0
 source = 5
 texture = SubResource("NoiseTexture2D_vtila")
-
-[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_q5t5o"]
-parameter_name = "ColorParameter"
-default_value_enabled = true
-default_value = Color(0.86037, 0.860369, 0.860369, 1)
-
-[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_h61yl"]
-parameter_name = "ColorParameter2"
-default_value_enabled = true
-default_value = Color(0.2, 0.317647, 0.168627, 1)
-
-[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_5ec4c"]
-parameter_name = "ColorParameter3"
-default_value_enabled = true
-default_value = Color(0.403922, 0.270588, 0.219608, 1)
 
 [resource]
 code = "shader_type spatial;
@@ -52,18 +37,12 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-21.4777, -241.667)
+graph_offset = Vector2(-125.525, -255.394)
 nodes/fragment/0/position = Vector2(2080, 160)
-nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_q5t5o")
-nodes/fragment/2/position = Vector2(960, 200)
-nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_h61yl")
-nodes/fragment/3/position = Vector2(960, 540)
-nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_5ec4c")
-nodes/fragment/4/position = Vector2(960, 880)
 nodes/fragment/13/node = SubResource("VisualShaderNodeTexture2DParameter_cbyti")
-nodes/fragment/13/position = Vector2(340, -160)
+nodes/fragment/13/position = Vector2(820, 260)
 nodes/fragment/15/node = SubResource("VisualShaderNodeInput_tox56")
-nodes/fragment/15/position = Vector2(340, -380)
+nodes/fragment/15/position = Vector2(800, 60)
 nodes/fragment/16/node = SubResource("VisualShaderNodeTexture_hi13i")
-nodes/fragment/16/position = Vector2(1040, -320)
+nodes/fragment/16/position = Vector2(1600, 100)
 nodes/fragment/connections = PackedInt32Array(13, 0, 16, 2, 16, 0, 0, 0, 15, 0, 16, 0)
