@@ -25,3 +25,7 @@ window/size/viewport_height=1024
 [filesystem]
 
 import/blender/enabled=false
+
+[rendering]
+
+anti_aliasing/quality/use_debanding=true
