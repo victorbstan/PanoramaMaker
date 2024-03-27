@@ -147,27 +147,6 @@ func _on_notification_window_focus_exited() -> void:
 	%NotificationWindow.hide()
 
 
-#func _on_capture_resolution_index_pressed(index: int) -> void:
-	#var selection = %CaptureResolutionMenuBar/"Capture Resolution".get_item_text(index)
-	#print('CAPTURE RES. CHOICE: ', index, ' - ', selection)
-	#%PanoramaMaker.capture_resolution = selection
-	#%PanoramaMaker.setup()
-#
-#
-#func _on_output_resolution_index_pressed(index: int) -> void:
-	#var selection = %OutputResolutionMenuBar/"Output Resolution".get_item_text(index)
-	#print('OUTPUT RES. CHOICE: ', index, ' - ', selection)
-	#%PanoramaMaker.output_resolution = selection
-	#%PanoramaMaker.setup()
-#
-#
-#func _on_texture_filter_index_pressed(index: int) -> void:
-	#var selection = %FilterMenuBar/"Texture Filter".get_item_text(index)
-	#print('FILTER CHOICE: ', index, ' - ', selection)
-	#%PanoramaMaker.texture_filter = selection
-	#%PanoramaMaker.setup()
-
-
 func _on_antialias_check_box_toggled(toggled_on: bool) -> void:
 	print('ANTIALIAS CHOICE: ', toggled_on)
 	%PanoramaMaker.antialias_msaa = toggled_on
