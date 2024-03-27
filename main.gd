@@ -6,17 +6,13 @@ var my_renders_root = "res://panoramas/"
 var my_renders:Dictionary = {}
 var current_scene:PackedScene
 var scene_instance:Node
+var save_skybox:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	%ErrorLabel.text = ''
 	update_scened_menu()
 	update_renders_menu()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 
 func _input(event: InputEvent) -> void:
@@ -133,14 +129,12 @@ func _on_render_button_pressed() -> void:
 		print('SAVING: ', %PanoramaMaker.save_file_name)
 		var output_file:String = await %PanoramaMaker.save_panorama()
 		var message:String = "Saved: {filename}".format({"filename": output_file})
+		# save skybox
+		if save_skybox: await %PanoramaMaker.save_skybox()
 		# Show preview popup
 		%NotificationWindow.title = message
 		%NotificationWindow.show()
 		preview_panorama_image(output_file)
-
-
-func _on_notification_window_about_to_popup() -> void:
-	pass
 
 
 func _on_notification_window_close_requested() -> void:
@@ -150,7 +144,6 @@ func _on_notification_window_close_requested() -> void:
 	%PanoramaMaker.visible = true
 	%MyScene.visible = true
 	get_tree().paused = false
-	
 
 
 func _on_notification_window_focus_exited() -> void:
@@ -200,4 +193,6 @@ func _on_texture_filter_options_item_selected(index: int) -> void:
 	%PanoramaMaker.setup()
 
 
-
+func _on_skybox_check_box_toggled(toggled_on: bool) -> void:
+	print('SKYBOX: ', toggled_on)
+	save_skybox = toggled_on

@@ -1848,6 +1848,13 @@ layout_mode = 2
 button_pressed = true
 text = "Antialias"
 
+[node name="SkyboxCheckBox" type="CheckBox" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+tooltip_text = "Saves 6 images separatley for each skybox camera. Alternative to panorama image."
+text = "Skybox"
+
 [node name="RenderButton" type="Button" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -1931,7 +1938,7 @@ autowrap_mode = 2
 [connection signal="item_selected" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/TextureFilterOptions" to="." method="_on_texture_filter_options_item_selected"]
 [connection signal="index_pressed" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/FilterMenuBar/Texture Filter" to="." method="_on_texture_filter_index_pressed"]
 [connection signal="toggled" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/AntialiasCheckBox" to="." method="_on_antialias_check_box_toggled"]
+[connection signal="toggled" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/SkyboxCheckBox" to="." method="_on_skybox_check_box_toggled"]
 [connection signal="pressed" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/RenderButton" to="." method="_on_render_button_pressed"]
-[connection signal="about_to_popup" from="ActionCanvas/UI/NotificationWindow" to="." method="_on_notification_window_about_to_popup"]
 [connection signal="close_requested" from="ActionCanvas/UI/NotificationWindow" to="." method="_on_notification_window_close_requested"]
 [connection signal="focus_exited" from="ActionCanvas/UI/NotificationWindow" to="." method="_on_notification_window_focus_exited"]

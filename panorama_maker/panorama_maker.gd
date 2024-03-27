@@ -19,23 +19,40 @@ func _ready():
 # save panorama as PNG file
 func save_panorama() -> String:
 	setup()
-	print('RENDER SETTINGS USED: ', capture_resolution, ' ', output_resolution, ' ', texture_filter, ' ', antialias_msaa)
+	print('SAVE PANO SETTINGS USED: ', capture_resolution, ' ', output_resolution, ' ', texture_filter, ' ', antialias_msaa)
 	await RenderingServer.frame_post_draw
 	var img = %Renderer.get_texture().get_image()
-	var output_path = "res://panoramas/" + save_file_name +".png"
+	var output_path = "res://panoramas/" + save_file_name + ".png"
 	await img.save_png(output_path)
 	return output_path
 	
 
-func save_skybox():
+# Each Skybox face name is composed of two components: the base name and a suffix indicating which face the image relates to.
+# The base name should be strictly alphanumeric, and should not contain spaces. Only the base name is used for loading.
+# The suffix should be either of "bk" (back face), "ft" (front face), "lf" (left face), "rt" (right face), "up" (up face) or "dn" (down face). 
+func save_skybox() -> String:
 	setup()
-	# TODO: implement 6 texture saving for skybox format
-	#Each Skybox face name is composed of two components: the base name and a suffix indicating which face the image relates to.
-#
-	#The base name should be strictly alphanumeric, and should not contain spaces. Only the base name is used for loading.
-#
-	#The suffix should be either of "bk" (back face), "ft" (front face), "lf" (left face), "rt" (right face), "up" (up face) or "dn" (down face). 
-	pass
+	print('SAVE SKYBOX SETTINGS USED: ', capture_resolution, ' ', output_resolution, ' ', texture_filter, ' ', antialias_msaa)
+	var path = "res://panoramas/" + save_file_name
+	if not DirAccess.dir_exists_absolute(path): DirAccess.make_dir_absolute(path)
+	var image_suffix = ['_bk', '_ft', '_lf', '_rt', '_up', '_dn']
+	for suffix in image_suffix:
+		var img:Image
+		match suffix:
+			'_bk': img = %CubeCam.get_back_texture().get_image()
+			'_ft': img = %CubeCam.get_forward_texture().get_image()
+			'_lf': img = %CubeCam.get_left_texture().get_image()
+			'_rt': img = %CubeCam.get_right_texture().get_image()
+			'_up': img = %CubeCam.get_top_texture().get_image()
+			'_dn': img = %CubeCam.get_bottom_texture().get_image()
+		var filter = Image.INTERPOLATE_NEAREST
+		match texture_filter:
+			'linear': Image.INTERPOLATE_TRILINEAR
+			'nearest': Image.INTERPOLATE_NEAREST
+		img.resize(output_resolution.to_int(), output_resolution.to_int(), filter)
+		var output_path = path + "/" + save_file_name + suffix + ".png"
+		await img.save_png(output_path)
+	return path
 
 
 func setup():
