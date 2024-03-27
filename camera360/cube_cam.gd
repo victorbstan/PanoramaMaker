@@ -10,14 +10,10 @@ extends Node3D
 @export var far:float = 4000.0
 @export var antialias_msaa:bool = false
 
-var is_ready = false
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# now we're ready
 	setup()
-	is_ready = true
 
 
 func setup():
