@@ -20,7 +20,7 @@ func _ready():
 	is_ready = true
 
 
-func _process(delta):
+func setup():
 	# update viewports' global position
 	var t = global_transform
 	$ForwardViewport/Position.global_transform = t
@@ -29,9 +29,6 @@ func _process(delta):
 	$RightViewport/Position.global_transform = t
 	$TopViewport/Position.global_transform = t
 	$BottomViewport/Position.global_transform = t
-
-
-func setup():
 	# camera settings
 	for camera:Camera3D in get_tree().get_nodes_in_group('camera'):
 		camera.far = far

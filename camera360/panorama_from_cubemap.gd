@@ -75,8 +75,6 @@ func get_bottom_texture():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	process_textures()
-	
-	# we are ready
 	is_ready = true
 
 

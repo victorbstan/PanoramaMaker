@@ -10,16 +10,9 @@ extends Node3D
 @export_enum("linear", "nearest") var texture_filter:String = "nearest"
 @export var antialias_msaa:bool = false
 
-@onready var renderer := %Renderer
-@onready var panorama := %Panorama
-@onready var cube_cam := %CubeCam
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# disable 3d output on our main viewport
-	renderer.disable_3d = true
-	renderer.use_hdr_2d = false
 	setup()
 
 
@@ -28,7 +21,7 @@ func save_panorama() -> String:
 	setup()
 	print('RENDER SETTINGS USED: ', capture_resolution, ' ', output_resolution, ' ', texture_filter, ' ', antialias_msaa)
 	await RenderingServer.frame_post_draw
-	var img = renderer.get_texture().get_image()
+	var img = %Renderer.get_texture().get_image()
 	var output_path = "res://panoramas/" + save_file_name +".png"
 	await img.save_png(output_path)
 	return output_path
@@ -44,34 +37,34 @@ func save_skybox():
 	#The suffix should be either of "bk" (back face), "ft" (front face), "lf" (left face), "rt" (right face), "up" (up face) or "dn" (down face). 
 	pass
 
-#
-# PRIVATE
-#
 
 func setup():
+	# For some reason everytime the project is opened this switches to "Always"...
+	%Renderer.render_target_update_mode = %Renderer.UPDATE_WHEN_VISIBLE
+	
 	match texture_filter:
-		"linear": renderer.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR
-		"nearest": renderer.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+		"linear": %Renderer.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR
+		"nearest": %Renderer.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	
 	match output_resolution:
-		"512": renderer.size = Vector2(512, 256)
-		"1024": renderer.size = Vector2(1024, 512)
-		"2048": renderer.size = Vector2(2048, 1024)
-		"4096": renderer.size = Vector2(4096, 2048)
-		"8192": renderer.size = Vector2(8192, 4096)
+		"512": %Renderer.size = Vector2(512, 256)
+		"1024": %Renderer.size = Vector2(1024, 512)
+		"2048": %Renderer.size = Vector2(2048, 1024)
+		"4096": %Renderer.size = Vector2(4096, 2048)
+		"8192": %Renderer.size = Vector2(8192, 4096)
 		
 	match capture_resolution:
-		"256": cube_cam.cube_size = 256
-		"512": cube_cam.cube_size = 512
-		"1024": cube_cam.cube_size = 1024
-		"2048": cube_cam.cube_size = 2048
-		"4096": cube_cam.cube_size = 4096
+		"256":  %CubeCam.cube_size = 256
+		"512":  %CubeCam.cube_size = 512
+		"1024":  %CubeCam.cube_size = 1024
+		"2048":  %CubeCam.cube_size = 2048
+		"4096":  %CubeCam.cube_size = 4096
 		
-	cube_cam.texture_filter = texture_filter
-	cube_cam.antialias_msaa = antialias_msaa
-	cube_cam.setup() # call after setting all cube camera parameters
+	%CubeCam.texture_filter = texture_filter
+	%CubeCam.antialias_msaa = antialias_msaa
+	%CubeCam.setup() # call after setting all cube camera parameters
 	
 	# bind our camera images to our panorama render
-	panorama.set_custom_texture_filter(texture_filter)
-	panorama.set_from_cubemap(cube_cam)
-	panorama.process_textures() # call after parameter changes
+	%Panorama.set_custom_texture_filter(texture_filter)
+	%Panorama.set_from_cubemap( %CubeCam)
+	%Panorama.process_textures() # call after parameter changes

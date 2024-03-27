@@ -1604,7 +1604,7 @@ cache/0/14/0/glyphs/268435527/size = Vector2(10, 13)
 cache/0/14/0/glyphs/268435527/uv_rect = Rect2(100, 15, 10, 13)
 cache/0/14/0/glyphs/268435527/texture_idx = 0
 
-[sub_resource type="Image" id="Image_amcxn"]
+[sub_resource type="Image" id="Image_dkdi4"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -1614,7 +1614,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_ogj5e"]
-image = SubResource("Image_amcxn")
+image = SubResource("Image_dkdi4")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22ejp"]
 content_margin_left = 4.0
@@ -1690,15 +1690,24 @@ LineEdit/styles/read_only = SubResource("StyleBoxFlat_e0i6c")
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vdsib")
 
-[node name="PanoramaMaker" parent="." instance=ExtResource("1_khbqv")]
+[node name="RenderCanvas" type="CanvasLayer" parent="."]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 1
+
+[node name="PanoramaMaker" parent="RenderCanvas" instance=ExtResource("1_khbqv")]
 unique_name_in_owner = true
 
-[node name="MyScene" type="Node3D" parent="."]
+[node name="MyScene" type="Node3D" parent="RenderCanvas"]
 unique_name_in_owner = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="ActionCanvas" type="CanvasLayer" parent="."]
+process_mode = 3
+process_thread_group = 1
+process_thread_group_order = 1
+process_thread_messages = 0
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="ActionCanvas"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1706,7 +1715,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+[node name="MarginContainer" type="MarginContainer" parent="ActionCanvas/UI"]
 layout_mode = 2
 offset_right = 82.0
 offset_bottom = 51.0
@@ -1715,48 +1724,24 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionCanvas/UI/MarginContainer"]
 layout_mode = 2
 
-[node name="ScenesMenuBar" type="MenuBar" parent="CanvasLayer/UI/MarginContainer/HBoxContainer"]
+[node name="ScenesMenuBar" type="MenuBar" parent="ActionCanvas/UI/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Scenes" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/ScenesMenuBar"]
+[node name="Scenes" type="PopupMenu" parent="ActionCanvas/UI/MarginContainer/HBoxContainer/ScenesMenuBar"]
 
-[node name="RendersMenuBar" type="MenuBar" parent="CanvasLayer/UI/MarginContainer/HBoxContainer"]
+[node name="RendersMenuBar" type="MenuBar" parent="ActionCanvas/UI/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Renders" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer/HBoxContainer/RendersMenuBar"]
+[node name="Renders" type="PopupMenu" parent="ActionCanvas/UI/MarginContainer/HBoxContainer/RendersMenuBar"]
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI"]
-auto_translate_mode = 1
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -161.0
-offset_right = 161.0
-offset_bottom = 51.0
-grow_horizontal = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="SelectedSceneLabel" type="Label" parent="CanvasLayer/UI/MarginContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.392157)
-text = "Select a scene to preview and render... "
-
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/UI"]
+[node name="MarginContainer2" type="MarginContainer" parent="ActionCanvas/UI"]
 auto_translate_mode = 1
 layout_mode = 1
 anchors_preset = 1
@@ -1770,11 +1755,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionCanvas/UI/MarginContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SceneFileName" type="LineEdit" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="SceneFileName" type="LineEdit" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -1782,18 +1767,18 @@ tooltip_text = "Scene name, customize save file name"
 theme = SubResource("Theme_ipr1w")
 placeholder_text = "Save file name..."
 
-[node name="CapResLabel" type="Label" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="CapResLabel" type="Label" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 text = "Capture
 "
 
-[node name="CaptureResolutionOptions" type="OptionButton" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="CaptureResolutionOptions" type="OptionButton" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Capture resolution for each cube camera. Eg. 512 x 512. Optimally, match the height of the output resolution. Eg. \"512 px\" to \"1024 x 512 px\""
 selected = 2
 allow_reselect = true
-item_count = 5
+item_count = 4
 popup/item_0/text = "256 px "
 popup/item_0/id = 256
 popup/item_1/text = "512 px"
@@ -1802,23 +1787,21 @@ popup/item_2/text = "1024 px"
 popup/item_2/id = 1024
 popup/item_3/text = "2048 px"
 popup/item_3/id = 2048
-popup/item_4/text = "4096 px"
-popup/item_4/id = 4096
 
-[node name="OutResLabel" type="Label" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="OutResLabel" type="Label" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 text = "Output
 "
 
-[node name="OutputResolutionOptions" type="OptionButton" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="OutputResolutionOptions" type="OptionButton" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
 tooltip_text = "Output resolution, panoramas are twice long as high"
 selected = 2
 allow_reselect = true
-item_count = 5
+item_count = 4
 popup/item_0/text = "512 x 256 px"
 popup/item_0/id = 512
 popup/item_1/text = "1024 x 512 px"
@@ -1827,53 +1810,13 @@ popup/item_2/text = "2048 x 1024 px"
 popup/item_2/id = 2048
 popup/item_3/text = "4096 x 2048 px"
 popup/item_3/id = 4096
-popup/item_4/text = "8192 x 4096 px"
-popup/item_4/id = 8192
 
-[node name="CaptureResolutionMenuBar" type="MenuBar" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
-unique_name_in_owner = true
-auto_translate_mode = 1
-visible = false
-layout_mode = 2
-
-[node name="Capture Resolution" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer/CaptureResolutionMenuBar"]
-auto_translate_mode = 1
-title = "Capture Resolution"
-item_count = 5
-item_0/text = "256"
-item_1/text = "512"
-item_1/id = 1
-item_2/text = "1024"
-item_2/id = 2
-item_3/text = "2048"
-item_3/id = 3
-item_4/text = "4096"
-item_4/id = 4
-
-[node name="OutputResolutionMenuBar" type="MenuBar" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
-unique_name_in_owner = true
-auto_translate_mode = 1
-visible = false
-layout_mode = 2
-
-[node name="Output Resolution" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer/OutputResolutionMenuBar"]
-auto_translate_mode = 1
-title = "Output Resolution"
-item_count = 4
-item_0/text = "1K"
-item_1/text = "2K"
-item_1/id = 1
-item_2/text = "4K"
-item_2/id = 2
-item_3/text = "8K"
-item_3/id = 3
-
-[node name="TexFilterLabel" type="Label" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="TexFilterLabel" type="Label" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 text = "Filter"
 
-[node name="TextureFilterOptions" type="OptionButton" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="TextureFilterOptions" type="OptionButton" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
@@ -1886,26 +1829,26 @@ popup/item_0/id = 0
 popup/item_1/text = "nearest"
 popup/item_1/id = 1
 
-[node name="FilterMenuBar" type="MenuBar" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="FilterMenuBar" type="MenuBar" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 visible = false
 layout_mode = 2
 
-[node name="Texture Filter" type="PopupMenu" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer/FilterMenuBar"]
+[node name="Texture Filter" type="PopupMenu" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer/FilterMenuBar"]
 auto_translate_mode = 1
 item_count = 2
 item_0/text = "linear"
 item_1/text = "nearest"
 item_1/id = 1
 
-[node name="AntialiasCheckBox" type="CheckBox" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="AntialiasCheckBox" type="CheckBox" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "Antialias"
 
-[node name="RenderButton" type="Button" parent="CanvasLayer/UI/MarginContainer3/HBoxContainer"]
+[node name="RenderButton" type="Button" parent="ActionCanvas/UI/MarginContainer2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -1913,7 +1856,7 @@ size_flags_vertical = 4
 disabled = true
 text = "Render"
 
-[node name="NotificationWindow" type="Window" parent="CanvasLayer/UI"]
+[node name="NotificationWindow" type="Window" parent="ActionCanvas/UI"]
 unique_name_in_owner = true
 own_world_3d = true
 world_3d = SubResource("World3D_p8y8g")
@@ -1929,10 +1872,10 @@ force_native = true
 keep_title_visible = true
 content_scale_size = Vector2i(400, 200)
 
-[node name="PanoramaViewer" parent="CanvasLayer/UI/NotificationWindow" instance=ExtResource("3_uf55a")]
+[node name="PanoramaViewer" parent="ActionCanvas/UI/NotificationWindow" instance=ExtResource("3_uf55a")]
 unique_name_in_owner = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/NotificationWindow"]
+[node name="MarginContainer" type="MarginContainer" parent="ActionCanvas/UI/NotificationWindow"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -1945,14 +1888,14 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="MessageLabel" type="Label" parent="CanvasLayer/UI/NotificationWindow/MarginContainer"]
+[node name="MessageLabel" type="Label" parent="ActionCanvas/UI/NotificationWindow/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.392157)
 text = "Navigate using keyboard arrow keys"
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/NotificationWindow"]
+[node name="MarginContainer2" type="MarginContainer" parent="ActionCanvas/UI/NotificationWindow"]
 auto_translate_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -1968,7 +1911,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="ErrorLabel" type="Label" parent="CanvasLayer/UI/NotificationWindow/MarginContainer2"]
+[node name="ErrorLabel" type="Label" parent="ActionCanvas/UI/NotificationWindow/MarginContainer2"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 custom_minimum_size = Vector2(200, 100)
@@ -1979,17 +1922,16 @@ text = "Error"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="about_to_popup" from="CanvasLayer/UI/MarginContainer/HBoxContainer/ScenesMenuBar/Scenes" to="." method="_on_scenes_about_to_popup"]
-[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer/HBoxContainer/ScenesMenuBar/Scenes" to="." method="_on_scenes_index_pressed"]
-[connection signal="about_to_popup" from="CanvasLayer/UI/MarginContainer/HBoxContainer/RendersMenuBar/Renders" to="." method="_on_renders_about_to_popup"]
-[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer/HBoxContainer/RendersMenuBar/Renders" to="." method="_on_renders_index_pressed"]
-[connection signal="item_selected" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/CaptureResolutionOptions" to="." method="_on_capture_resolution_options_item_selected"]
-[connection signal="item_selected" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/OutputResolutionOptions" to="." method="_on_output_resolution_options_item_selected"]
-[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/CaptureResolutionMenuBar/Capture Resolution" to="." method="_on_capture_resolution_index_pressed"]
-[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/OutputResolutionMenuBar/Output Resolution" to="." method="_on_output_resolution_index_pressed"]
-[connection signal="item_selected" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/TextureFilterOptions" to="." method="_on_texture_filter_options_item_selected"]
-[connection signal="index_pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/FilterMenuBar/Texture Filter" to="." method="_on_texture_filter_index_pressed"]
-[connection signal="toggled" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/AntialiasCheckBox" to="." method="_on_antialias_check_box_toggled"]
-[connection signal="pressed" from="CanvasLayer/UI/MarginContainer3/HBoxContainer/RenderButton" to="." method="_on_render_button_pressed"]
-[connection signal="close_requested" from="CanvasLayer/UI/NotificationWindow" to="." method="_on_notification_window_close_requested"]
-[connection signal="focus_exited" from="CanvasLayer/UI/NotificationWindow" to="." method="_on_notification_window_focus_exited"]
+[connection signal="about_to_popup" from="ActionCanvas/UI/MarginContainer/HBoxContainer/ScenesMenuBar/Scenes" to="." method="_on_scenes_about_to_popup"]
+[connection signal="index_pressed" from="ActionCanvas/UI/MarginContainer/HBoxContainer/ScenesMenuBar/Scenes" to="." method="_on_scenes_index_pressed"]
+[connection signal="about_to_popup" from="ActionCanvas/UI/MarginContainer/HBoxContainer/RendersMenuBar/Renders" to="." method="_on_renders_about_to_popup"]
+[connection signal="index_pressed" from="ActionCanvas/UI/MarginContainer/HBoxContainer/RendersMenuBar/Renders" to="." method="_on_renders_index_pressed"]
+[connection signal="item_selected" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/CaptureResolutionOptions" to="." method="_on_capture_resolution_options_item_selected"]
+[connection signal="item_selected" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/OutputResolutionOptions" to="." method="_on_output_resolution_options_item_selected"]
+[connection signal="item_selected" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/TextureFilterOptions" to="." method="_on_texture_filter_options_item_selected"]
+[connection signal="index_pressed" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/FilterMenuBar/Texture Filter" to="." method="_on_texture_filter_index_pressed"]
+[connection signal="toggled" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/AntialiasCheckBox" to="." method="_on_antialias_check_box_toggled"]
+[connection signal="pressed" from="ActionCanvas/UI/MarginContainer2/HBoxContainer/RenderButton" to="." method="_on_render_button_pressed"]
+[connection signal="about_to_popup" from="ActionCanvas/UI/NotificationWindow" to="." method="_on_notification_window_about_to_popup"]
+[connection signal="close_requested" from="ActionCanvas/UI/NotificationWindow" to="." method="_on_notification_window_close_requested"]
+[connection signal="focus_exited" from="ActionCanvas/UI/NotificationWindow" to="." method="_on_notification_window_focus_exited"]

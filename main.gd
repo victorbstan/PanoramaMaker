@@ -83,6 +83,10 @@ func fetch_renders_from_dir(path):
 
 
 func preview_panorama_image(path:String) -> void:
+	# Hide these for performance reasons
+	%PanoramaMaker.visible = false
+	%MyScene.visible = false
+	get_tree().paused = true
 	# load image into panorama viwer, displayed in message popup
 	var image := Image.load_from_file(path)
 	var selected_render:Texture2D = ImageTexture.create_from_image(image)
@@ -101,8 +105,6 @@ func _on_scenes_index_pressed(index):
 	current_scene = load(my_scenes[id])
 	scene_instance = current_scene.instantiate()
 	%MyScene.call_deferred("add_child", scene_instance)
-	# set label name
-	%SelectedSceneLabel.text = scene_instance.name
 	# enable render button
 	%RenderButton.disabled = false
 	# set filename text
@@ -119,7 +121,7 @@ func _on_renders_index_pressed(index: int) -> void:
 	%NotificationWindow.title = "Preview: {filename}".format({"filename": my_renders[id]}) 
 	%NotificationWindow.show()
 	preview_panorama_image(my_renders[id])
-
+	
 
 func _on_render_button_pressed() -> void:
 	if not current_scene: return
@@ -137,14 +139,27 @@ func _on_render_button_pressed() -> void:
 		preview_panorama_image(output_file)
 
 
+func _on_notification_window_about_to_popup() -> void:
+	pass
+
+
 func _on_notification_window_close_requested() -> void:
 	%ErrorLabel.text = ''
 	%NotificationWindow.hide()
+	# show main content after modal close
+	%PanoramaMaker.visible = true
+	%MyScene.visible = true
+	get_tree().paused = false
+	
 
 
 func _on_notification_window_focus_exited() -> void:
 	%ErrorLabel.text = ''
 	%NotificationWindow.hide()
+	# show main content after modal close
+	%PanoramaMaker.visible = true
+	%MyScene.visible = true
+	get_tree().paused = false
 
 
 func _on_antialias_check_box_toggled(toggled_on: bool) -> void:
@@ -183,3 +198,6 @@ func _on_texture_filter_options_item_selected(index: int) -> void:
 	print('FILTER OPTION: ', index, ' - ', selection)
 	%PanoramaMaker.texture_filter = selection
 	%PanoramaMaker.setup()
+
+
+

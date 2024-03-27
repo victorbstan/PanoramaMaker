@@ -13,7 +13,6 @@ antialias_msaa = true
 
 [node name="CubeCam" parent="." instance=ExtResource("2_0mjrc")]
 unique_name_in_owner = true
-shadow_atlast_size = 1024
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
