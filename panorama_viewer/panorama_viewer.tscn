@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://mav1wpgo44we"]
+
+[ext_resource type="Script" path="res://panorama_viewer/panorama_viewer.gd" id="1_h3hnf"]
+[ext_resource type="Script" path="res://panorama_viewer/pano_view_camera_3d.gd" id="2_28srl"]
+[ext_resource type="Environment" uid="uid://dvohjt02bqq2a" path="res://panorama_viewer/panorama_viewer_environment.tres" id="3_o2311"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8i80r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8054x"]
+
+[node name="PanoramaViewer" type="Node3D"]
+script = ExtResource("1_h3hnf")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_o2311")
+camera_attributes = SubResource("CameraAttributesPractical_8i80r")
+
+[node name="PanoViewCamera3D" type="Camera3D" parent="."]
+fov = 90.0
+script = ExtResource("2_28srl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TextureFilterCheckButton" type="CheckButton" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8054x")
+text = "Texture Filter"
+
+[connection signal="toggled" from="HBoxContainer/TextureFilterCheckButton" to="." method="_on_texture_filter_check_button_toggled"]

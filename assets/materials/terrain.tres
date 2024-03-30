@@ -1,0 +1,47 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://j53roewyhf3e"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_cbyti"]
+parameter_name = "Texture2DParameter"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_tox56"]
+input_name = "uv"
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vtila"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hi13i"]
+output_port_for_preview = 0
+source = 5
+texture = SubResource("NoiseTexture2D_vtila")
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D Texture2DParameter;
+
+
+
+void fragment() {
+// Input:15
+	vec2 n_out15p0 = UV;
+
+
+	vec4 n_out16p0;
+// Texture2D:16
+	n_out16p0 = texture(Texture2DParameter, n_out15p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out16p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(2080, 160)
+nodes/fragment/13/node = SubResource("VisualShaderNodeTexture2DParameter_cbyti")
+nodes/fragment/13/position = Vector2(820, 260)
+nodes/fragment/15/node = SubResource("VisualShaderNodeInput_tox56")
+nodes/fragment/15/position = Vector2(800, 60)
+nodes/fragment/16/node = SubResource("VisualShaderNodeTexture_hi13i")
+nodes/fragment/16/position = Vector2(1600, 100)
+nodes/fragment/connections = PackedInt32Array(13, 0, 16, 2, 16, 0, 0, 0, 15, 0, 16, 0)

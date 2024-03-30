@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://gm841tkv0myb"]
+
+[ext_resource type="PackedScene" uid="uid://pecop8i8wdiy" path="res://camera360/panorama_from_cubemap.tscn" id="1_82c4m"]
+[ext_resource type="Script" path="res://panorama_maker/panorama_maker.gd" id="1_waa14"]
+[ext_resource type="PackedScene" uid="uid://b1yieta6qw8rw" path="res://camera360/cube_cam.tscn" id="2_0mjrc"]
+
+[node name="PanoramaMaker" type="Node3D"]
+script = ExtResource("1_waa14")
+texture_filter = "linear"
+antialias_msaa = true
+refresh_timer = 0.06
+
+[node name="CubeCam" parent="." instance=ExtResource("2_0mjrc")]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="RendererContainer" type="SubViewportContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="Renderer" type="SubViewport" parent="CanvasLayer/CenterContainer/RendererContainer"]
+unique_name_in_owner = true
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(1024, 512)
+render_target_update_mode = 0
+
+[node name="Panorama" parent="CanvasLayer/CenterContainer/RendererContainer/Renderer" instance=ExtResource("1_82c4m")]
+unique_name_in_owner = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

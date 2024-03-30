@@ -1,0 +1,99 @@
+[gd_scene load_steps=17 format=3 uid="uid://dhnfg72br4nqs"]
+
+[ext_resource type="Material" uid="uid://m80rmki4fbox" path="res://assets/sky/examples/night_sky.tres" id="1_wf3sb"]
+
+[sub_resource type="Sky" id="Sky_rhxex"]
+sky_material = ExtResource("1_wf3sb")
+
+[sub_resource type="Environment" id="Environment_ef73u"]
+background_mode = 2
+sky = SubResource("Sky_rhxex")
+tonemap_mode = 2
+sdfgi_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h3jue"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k5s1"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcqyb"]
+material = SubResource("StandardMaterial3D_0k5s1")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm02p"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ylsy0"]
+material = SubResource("StandardMaterial3D_mm02p")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoo63"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5w2eq"]
+material = SubResource("StandardMaterial3D_aoo63")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el0s5"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qbm0r"]
+material = SubResource("StandardMaterial3D_el0s5")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdtjj"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6t063"]
+material = SubResource("StandardMaterial3D_fdtjj")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x08ti"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3chfi"]
+material = SubResource("StandardMaterial3D_x08ti")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="sample_stylized_night" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.907486, -0.3969, -0.137623, -0.411219, 0.772371, 0.48409, -0.0858385, 0.495898, -0.864128, 0, 6.21523, 0)
+light_color = Color(0.716839, 0.797621, 1, 1)
+light_energy = 0.3
+light_cull_mask = 4293918721
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ef73u")
+camera_attributes = SubResource("CameraAttributesPractical_h3jue")
+
+[node name="Cube1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.5, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_fcqyb")
+skeleton = NodePath("")
+
+[node name="Cube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, -2.5, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_ylsy0")
+skeleton = NodePath("")
+
+[node name="Cube3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.5, 2.08165e-12)
+mesh = SubResource("BoxMesh_5w2eq")
+skeleton = NodePath("")
+
+[node name="Cube4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, -2.5, 2.08165e-12)
+mesh = SubResource("BoxMesh_qbm0r")
+skeleton = NodePath("")
+
+[node name="Cube5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.08165e-12, 2.5)
+mesh = SubResource("BoxMesh_6t063")
+skeleton = NodePath("")
+
+[node name="Cube6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.08165e-12, -2.5)
+mesh = SubResource("BoxMesh_3chfi")
+skeleton = NodePath("")

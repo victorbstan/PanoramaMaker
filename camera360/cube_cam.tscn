@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1yieta6qw8rw"]
+
+[ext_resource type="Script" path="res://camera360/cube_cam.gd" id="1"]
+
+[node name="CubeCam" type="Node3D"]
+script = ExtResource("1")
+
+[node name="ForwardViewport" type="SubViewport" parent="." groups=["viewport"]]
+use_debanding = true
+canvas_item_default_texture_filter = 0
+
+[node name="Position" type="Node3D" parent="ForwardViewport"]
+
+[node name="Camera" type="Camera3D" parent="ForwardViewport/Position" groups=["camera"]]
+fov = 90.0
+
+[node name="LeftViewport" type="SubViewport" parent="." groups=["viewport"]]
+use_debanding = true
+canvas_item_default_texture_filter = 0
+
+[node name="Position" type="Node3D" parent="LeftViewport"]
+
+[node name="Camera" type="Camera3D" parent="LeftViewport/Position" groups=["camera"]]
+transform = Transform3D(-1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0)
+fov = 90.0
+
+[node name="BackViewport" type="SubViewport" parent="." groups=["viewport"]]
+use_debanding = true
+canvas_item_default_texture_filter = 0
+
+[node name="Position" type="Node3D" parent="BackViewport"]
+
+[node name="Camera" type="Camera3D" parent="BackViewport/Position" groups=["camera"]]
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0)
+fov = 90.0
+
+[node name="RightViewport" type="SubViewport" parent="." groups=["viewport"]]
+use_debanding = true
+canvas_item_default_texture_filter = 0
+
+[node name="Position" type="Node3D" parent="RightViewport"]
+
+[node name="Camera" type="Camera3D" parent="RightViewport/Position" groups=["camera"]]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+fov = 90.0
+
+[node name="TopViewport" type="SubViewport" parent="." groups=["viewport"]]
+use_debanding = true
+canvas_item_default_texture_filter = 0
+
+[node name="Position" type="Node3D" parent="TopViewport"]
+
+[node name="Camera" type="Camera3D" parent="TopViewport/Position" groups=["camera"]]
+transform = Transform3D(-1.62921e-07, 1, -1.62921e-07, 0, -1.62921e-07, -1, -1, -1.62921e-07, 2.65431e-14, 0, 0, 0)
+fov = 90.0
+
+[node name="BottomViewport" type="SubViewport" parent="." groups=["viewport"]]
+use_debanding = true
+canvas_item_default_texture_filter = 0
+
+[node name="Position" type="Node3D" parent="BottomViewport"]
+
+[node name="Camera" type="Camera3D" parent="BottomViewport/Position"]
+transform = Transform3D(-1.62921e-07, 1, 1.62921e-07, 0, -1.62921e-07, 1, 1, 1.62921e-07, 2.65431e-14, 0, 0, 0)
+fov = 90.0

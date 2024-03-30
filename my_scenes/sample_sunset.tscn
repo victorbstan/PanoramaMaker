@@ -1,0 +1,156 @@
+[gd_scene load_steps=24 format=3 uid="uid://cnkji4tk7ol7q"]
+
+[ext_resource type="Texture2D" uid="uid://c6dmtxkb5jdjk" path="res://assets/hdri/belfast_sunset_puresky_2k.hdr" id="1_n5wlw"]
+[ext_resource type="Material" uid="uid://dbufossseaaeb" path="res://assets/materials/terrain.material" id="2_r8ylp"]
+[ext_resource type="ArrayMesh" uid="uid://krfgmp0snr2x" path="res://assets/meshes/Terrain.res" id="4_rgtiu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xepkk"]
+panorama = ExtResource("1_n5wlw")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_rhxex"]
+sky_material = SubResource("PanoramaSkyMaterial_xepkk")
+
+[sub_resource type="Environment" id="Environment_ef73u"]
+background_mode = 2
+sky = SubResource("Sky_rhxex")
+ssr_enabled = true
+ssr_max_steps = 512
+fog_enabled = true
+fog_light_color = Color(0.165954, 0.211064, 0.307879, 1)
+fog_aerial_perspective = 0.494
+volumetric_fog_density = 0.03
+volumetric_fog_albedo = Color(0.539237, 0.62404, 0.911362, 1)
+volumetric_fog_ambient_inject = 0.1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h3jue"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sre5k"]
+noise_type = 3
+frequency = 0.1954
+fractal_type = 3
+fractal_octaves = 10
+fractal_ping_pong_strength = 10.0
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wuf6f"]
+width = 8193
+height = 8193
+as_normal_map = true
+bump_strength = 1.0
+noise = SubResource("FastNoiseLite_sre5k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03vky"]
+albedo_color = Color(0, 0.243137, 0.243137, 1)
+roughness = 0.0
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_wuf6f")
+rim_enabled = true
+anisotropy_enabled = true
+subsurf_scatter_enabled = true
+subsurf_scatter_transmittance_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2b5mn"]
+material = SubResource("StandardMaterial3D_03vky")
+size = Vector2(1025, 1025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k5s1"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcqyb"]
+material = SubResource("StandardMaterial3D_0k5s1")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm02p"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ylsy0"]
+material = SubResource("StandardMaterial3D_mm02p")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoo63"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5w2eq"]
+material = SubResource("StandardMaterial3D_aoo63")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el0s5"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qbm0r"]
+material = SubResource("StandardMaterial3D_el0s5")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdtjj"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6t063"]
+material = SubResource("StandardMaterial3D_fdtjj")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x08ti"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3chfi"]
+material = SubResource("StandardMaterial3D_x08ti")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="sample_sunset" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.512598, 0.0961868, -0.853225, -2.98023e-08, 0.993706, 0.112024, 0.858629, -0.0574229, 0.509371, 0, 6.21523, 0)
+light_color = Color(1, 0.843137, 0.498039, 1)
+light_energy = 0.5
+light_cull_mask = 4293918721
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ef73u")
+camera_attributes = SubResource("CameraAttributesPractical_h3jue")
+
+[node name="TerrainMesh3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.5, 0)
+mesh = ExtResource("4_rgtiu")
+surface_material_override/0 = ExtResource("2_r8ylp")
+
+[node name="WaterMesh3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+mesh = SubResource("PlaneMesh_2b5mn")
+
+[node name="Cube1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.5, 2.08165e-12, 2.08165e-12)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_fcqyb")
+skeleton = NodePath("")
+
+[node name="Cube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, -2.5, 2.08165e-12, 2.08165e-12)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ylsy0")
+skeleton = NodePath("")
+
+[node name="Cube3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.5, 2.08165e-12)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_5w2eq")
+skeleton = NodePath("")
+
+[node name="Cube4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, -2.5, 2.08165e-12)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_qbm0r")
+skeleton = NodePath("")
+
+[node name="Cube5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.08165e-12, 2.5)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_6t063")
+skeleton = NodePath("")
+
+[node name="Cube6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.08165e-12, -2.5)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_3chfi")
+skeleton = NodePath("")

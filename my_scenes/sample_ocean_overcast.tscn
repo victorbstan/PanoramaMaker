@@ -1,0 +1,281 @@
+[gd_scene load_steps=37 format=3 uid="uid://crk05byjx0r5l"]
+
+[ext_resource type="Texture2D" uid="uid://cndog7soswsiw" path="res://assets/hdri/farm_field_puresky_2k.hdr" id="1_74lot"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xepkk"]
+panorama = ExtResource("1_74lot")
+
+[sub_resource type="Sky" id="Sky_rhxex"]
+sky_material = SubResource("PanoramaSkyMaterial_xepkk")
+
+[sub_resource type="Environment" id="Environment_ef73u"]
+background_mode = 2
+sky = SubResource("Sky_rhxex")
+tonemap_mode = 2
+tonemap_exposure = 0.25
+sdfgi_enabled = true
+glow_normalized = true
+fog_light_color = Color(0.796438, 0.816707, 0.848561, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h3jue"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k5s1"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcqyb"]
+material = SubResource("StandardMaterial3D_0k5s1")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm02p"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ylsy0"]
+material = SubResource("StandardMaterial3D_mm02p")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoo63"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5w2eq"]
+material = SubResource("StandardMaterial3D_aoo63")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el0s5"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qbm0r"]
+material = SubResource("StandardMaterial3D_el0s5")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdtjj"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6t063"]
+material = SubResource("StandardMaterial3D_fdtjj")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x08ti"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3chfi"]
+material = SubResource("StandardMaterial3D_x08ti")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_i581v"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ix7e"]
+noise_type = 2
+fractal_octaves = 2
+fractal_lacunarity = 5.0
+fractal_gain = 5.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a0rp2"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_7ix7e")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vkake"]
+noise_type = 3
+frequency = 0.0777
+fractal_weighted_strength = 1.0
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ufoe0"]
+width = 2048
+height = 2048
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_vkake")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wb030"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eu5wx"]
+width = 2048
+height = 2048
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_wb030")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2ckvu"]
+frequency = 0.014
+domain_warp_type = 2
+domain_warp_fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5h5vs"]
+in_3d_space = true
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_2ckvu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80sek"]
+albedo_color = Color(0.262745, 0.427451, 0.513726, 1)
+roughness = 0.0
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_5h5vs")
+rim_enabled = true
+rim = 0.1
+heightmap_texture = SubResource("NoiseTexture2D_eu5wx")
+detail_mask = SubResource("NoiseTexture2D_a0rp2")
+detail_albedo = SubResource("CurveXYZTexture_i581v")
+detail_normal = SubResource("NoiseTexture2D_ufoe0")
+grow_amount = -1.566
+proximity_fade_distance = 35.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8mijc"]
+lightmap_size_hint = Vector2i(5002, 5002)
+material = SubResource("StandardMaterial3D_80sek")
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_valk3"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_7u5da"]
+material = SubResource("StandardMaterial3D_valk3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uete4"]
+transparency = 4
+albedo_color = Color(1, 1, 1, 0.501961)
+anisotropy = -0.53
+backlight = Color(1, 0.447138, 0.273024, 1)
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_apiep"]
+material = SubResource("StandardMaterial3D_uete4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhxjf"]
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_twdgi"]
+material = SubResource("StandardMaterial3D_jhxjf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb7w1"]
+clearcoat_enabled = true
+anisotropy = -0.13
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+subsurf_scatter_transmittance_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_1cnyv"]
+material = SubResource("StandardMaterial3D_mb7w1")
+
+[node name="sample_ocean_overcast" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866026, 0.353553, -0.353553, -7.98554e-09, 0.707107, 0.707107, 0.500001, -0.612372, 0.612372, 0, 6.21523, 0)
+light_cull_mask = 4293918721
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ef73u")
+camera_attributes = SubResource("CameraAttributesPractical_h3jue")
+
+[node name="Cube1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.5, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_fcqyb")
+skeleton = NodePath("")
+
+[node name="Cube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, -2.5, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_ylsy0")
+skeleton = NodePath("")
+
+[node name="Cube3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.5, 2.08165e-12)
+mesh = SubResource("BoxMesh_5w2eq")
+skeleton = NodePath("")
+
+[node name="Cube4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, -2.5, 2.08165e-12)
+mesh = SubResource("BoxMesh_qbm0r")
+skeleton = NodePath("")
+
+[node name="Cube5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.08165e-12, 2.5)
+mesh = SubResource("BoxMesh_6t063")
+skeleton = NodePath("")
+
+[node name="Cube6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.707107, 0.5, 0.5, 2.4663e-16, 0.707107, -0.707107, -0.707107, 0.5, 0.5, 2.08165e-12, 2.08165e-12, -2.5)
+mesh = SubResource("BoxMesh_3chfi")
+skeleton = NodePath("")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_8mijc")
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="."]
+size = Vector3(10, 10, 10)
+
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 249.5)
+size = Vector3(1000, 10, 500)
+
+[node name="ReflectionProbe4" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -250.5)
+size = Vector3(1000, 10, 500)
+
+[node name="ReflectionProbe5" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -251, 0, 0)
+size = Vector3(500, 10, 1000)
+
+[node name="ReflectionProbe6" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 251.5, 0, 0)
+size = Vector3(500, 10, 1000)
+
+[node name="VisSpheres" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VisSpheres"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_7u5da")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="VisSpheres"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_apiep")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="VisSpheres"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_twdgi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="VisSpheres"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_1cnyv")
+skeleton = NodePath("../..")
+
+[node name="VisSpheres2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="VisSpheres2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_7u5da")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="VisSpheres2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_apiep")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="VisSpheres2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_twdgi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="VisSpheres2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_1cnyv")
+skeleton = NodePath("../..")

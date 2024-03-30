@@ -1,0 +1,11 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://dvohjt02bqq2a"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_e1x7n"]
+filter = false
+
+[sub_resource type="Sky" id="Sky_clgu8"]
+sky_material = SubResource("PanoramaSkyMaterial_e1x7n")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_clgu8")
