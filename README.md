@@ -83,6 +83,8 @@ If you have selected the `Skybox` checkbox, rendered images will be saved inside
 
 These images are compatible with "Quake" 1 and 2 in-game skybox rendering. Might also work in "Half-Life 1", but has not been tested. _Quake and Half-Life are copyright their respective owners, and are not related to this project in any way_.
 
+To view how this process works in action check out this video: https://youtu.be/Xmk56k_vyZk
+
 And this should conclude the general introduction to the features available.
 
 ## Future plans
@@ -104,3 +106,7 @@ The project makes use of the ["Camera 360" Godot project](https://github.com/vic
 ### HDRi Images
 
 This project includes some images which are freely available under very permissive license [CC0](https://polyhaven.com/license) from [Poly Haven](https://polyhaven.com/a/belfast_sunset_puresky).
+
+### Stylized Sky
+
+This project also makes use of the `Stylized Sky` Godot project assets: https://github.com/gdquest-demos/godot-4-stylized-sky
